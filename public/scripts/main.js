@@ -128,10 +128,10 @@ function acbox(){
 
         $('#txt2').fitText(5);
 
-        }
         $('#titlep').fitText(3.8);
 
         $('.btn-blue.btn-join').fitText(0.9);
+        }
     }, 200);
   });
 
