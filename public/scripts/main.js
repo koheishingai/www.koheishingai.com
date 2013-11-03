@@ -123,10 +123,12 @@ function acbox(){
         adslide();
 
         timeline();
+        if($("window").innerWidth() > 700){
         $('#tit1').fitText(1.5);
 
         $('#txt2').fitText(5);
 
+        }
         $('#titlep').fitText(3.8);
 
         $('.btn-blue.btn-join').fitText(0.9);
