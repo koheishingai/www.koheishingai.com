@@ -1,0 +1,472 @@
+﻿<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>www.koheishingai.com</title>
+<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<link href="http://fonts.googleapis.com/css?family=Titillium+Web:400,700" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href="/styles/main.css" rel="stylesheet">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js"></script>
+<script src='/scripts/outclick.js'></script>
+<script src="/scripts/detect.js"></script>
+<script src="/scripts/fittext.js"></script>
+<script src="/scripts/main.js"></script>
+
+
+<style>
+
+#wcontent {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+
+
+.visual {
+  padding: 430px 0px 0px;
+  margin: 0px 20px;
+  border-collapse: collapse; 
+  list-style: none; 
+  height: auto; 
+  color: rgb(255, 255, 255); 
+  font-size: 20px; 
+  text-align: center; 
+  background-image: none; 
+  position: relative; 
+  overflow: hidden;
+}
+
+.slide {
+padding: 0px;
+margin: 0px;
+border-collapse: collapse;
+list-style: none;
+position: absolute;
+top: 0px;
+left: 0px;
+-webkit-transition: 0.2s;
+transition: 0.2s;
+width: 4700px;
+}
+
+.slide-item.item1 {
+  padding: 0px;
+  margin: 0px; 
+  border-collapse: collapse; 
+  list-style: none; 
+  background-image: url(http://farm6.staticflickr.com/5505/10624711695_2c87385f18_o.png); 
+  background-size: 940px 430px; 
+  float: left; 
+  width: 940px; 
+  height: 430px; 
+  text-align: right; 
+  background-position: 0px 0px; 
+  background-repeat: no-repeat no-repeat;
+}
+
+.slide-item.item2 {
+  padding: 0px; 
+  margin: 0px; 
+  border-collapse: collapse; 
+  list-style: none; 
+  background-image: url(http://d1c5t9xsxiurcy.cloudfront.net/_static_gen/_ui/images/business/about-discover2.c11ab07348ca.jpg); 
+  background-size: 940px 430px; 
+  float: left; 
+  width: 940px; 
+  height: 430px; 
+  text-align: left; 
+  background-position: 0px 0px; 
+  background-repeat: no-repeat no-repeat;
+}
+
+.slide-item.item3 {
+  padding: 0px; 
+  margin: 0px; 
+  border-collapse: collapse; 
+  list-style: none; 
+  background-image: url(http://d1c5t9xsxiurcy.cloudfront.net/_static_gen/_ui/images/business/about-discover3.04e79d1c4cba.jpg); 
+  background-size: 940px 430px; 
+  float: left; 
+  width: 940px; 
+  height: 430px; 
+  background-position: 0px 0px; 
+  background-repeat: no-repeat no-repeat;
+}
+
+.slide-item.item4 {
+  padding: 0px; 
+  margin: 0px; 
+  border-collapse: collapse; 
+  list-style: none; 
+  background-image: url(http://d1c5t9xsxiurcy.cloudfront.net/_static_gen/_ui/images/business/about-discover4.e2ba254cbb6b.jpg); 
+  background-size: 940px 430px; 
+  float: left; 
+  width: 940px; 
+  height: 430px; 
+  background-position: 0px 0px; 
+  background-repeat: no-repeat no-repeat;
+}
+
+.slide-item.item5 {
+  padding: 0px; 
+  margin: 0px; 
+  border-collapse: collapse; 
+  list-style: none; 
+  background-image: url(http://d1c5t9xsxiurcy.cloudfront.net/_static_gen/_ui/images/business/about-discover5.5cc187f3d090.jpg); 
+  background-size: 940px 430px; 
+  float: left; 
+  width: 940px; 
+  height: 430px; 
+  text-align: left; 
+  background-position: 0px 0px; 
+  background-repeat: no-repeat no-repeat;
+}
+
+.btn-next {
+    padding: 0px; 
+    margin: 0px; 
+    border-collapse: collapse; 
+    list-style: none; 
+    text-decoration: none; 
+    color: rgb(77, 114, 167); 
+    background-image: url(http://farm3.staticflickr.com/2889/10644048236_785cdc102d_o.png); 
+    background-size: 800px 240px; 
+    position: absolute; 
+    top: 50%; 
+    width: 48px; 
+    height: 49px; 
+    opacity: 0.7; 
+    right: 20px; 
+    background-position: -270px -180px; 
+    background-repeat: no-repeat no-repeat;
+    margin-top: -15px;
+}
+
+.btn-prev {
+padding: 0px;
+margin: 0px;
+border-collapse: collapse;
+list-style: none;
+text-decoration: none;
+color: rgb(77, 114, 167);
+background-image: url(http://farm3.staticflickr.com/2889/10644048236_785cdc102d_o.png);
+background-size: 800px 240px;
+position: absolute;
+top: 50%;
+width: 48px;
+height: 49px;
+opacity: 0.7;
+left: 20px;
+background-position: -210px -180px;
+background-repeat: no-repeat no-repeat;
+margin-top: -15px;
+}
+
+.join-text {
+    padding: 0px 0px 15px; 
+    margin: 0px; 
+    border-collapse: collapse; 
+    list-style: none; 
+    text-align: center; 
+    font-size: 32px; 
+    line-height: 36px;
+}
+
+#titlep {
+padding: 30px 0px 28px;
+margin: 0px;
+border-collapse: collapse;
+list-style: none;
+color: rgb(128,128,128);
+}
+
+.btn-blue.btn-join {
+    padding: 0px 20px; 
+    margin: 0px 0px 20px; 
+    border-collapse: collapse; 
+    list-style: none; 
+    vertical-align: middle; 
+    background-color: rgb(35, 142, 207); 
+    cursor: pointer; 
+    border: 0px; 
+    color: rgb(255, 255, 255); 
+    box-shadow: none; 
+    border-top-left-radius: 2px; 
+    border-top-right-radius: 2px; 
+    border-bottom-right-radius: 2px; 
+    border-bottom-left-radius: 2px; 
+    text-shadow: rgba(77, 123, 196, 0.74902) 0px 1px 1px; 
+    font-size: 18px; 
+    line-height: 47px; 
+    min-width: 217px; 
+    height: auto;
+}
+
+#content {
+    padding: 0px 0px 40px; 
+    margin: 0px; 
+    border-collapse: collapse; 
+    list-style: none; 
+    position: relative; 
+    float: left; 
+    width: 980px; 
+    min-height: 427px;
+}
+
+#animation{
+padding: 0px; 
+margin: 0px; 
+border-collapse: collapse;
+list-style: none;
+}
+
+#tid {
+  padding: 0px 0px 20px; 
+  margin: 0px; 
+  border-collapse: collapse; 
+  list-style: none; 
+  line-height: 1em; 
+  font-size: 17px; 
+  color: rgb(91, 137, 151);
+}
+
+#tiu {
+    padding: 49px 0px 10px; 
+    margin: 0px; 
+    border-collapse: collapse; 
+    list-style: none; 
+    line-height: 1em; 
+    font-size: 64px; 
+    color: rgb(35, 47, 53);
+}
+
+#tit1 {
+padding: 37px 39px 10px 0px;
+margin: 0px;
+border-collapse: collapse;
+list-style: none;
+line-height: 1em;
+font-size: 64px;
+width: 100%;
+font-family: 'Open Sans', sans-serif;
+font-weight: 700;
+}
+
+#txt2 {
+    padding: 0px 42px 20px 0px; 
+    margin: 0px; 
+    border-collapse: collapse; 
+    list-style: none; 
+    line-height: 1em; 
+    font-size: 17px;
+    width:100%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.business-support {
+padding: 20px 0px 20px;
+margin: 0px 20px;
+border-collapse: collapse;
+list-style: none;
+clear: both;
+background-image: none;
+}
+
+.bsul {
+padding: 0px;
+margin: 0px auto;
+border-collapse: collapse;
+list-style: none;
+box-shadow: none;
+width: 100%;
+height: 345px;
+}
+
+.bsli {
+padding: 58px 0px 0px;
+margin: 0px;
+border-collapse: collapse;
+list-style: none;
+float: left;
+font-size: 18px;
+line-height: 26px;
+color: rgb(128, 128, 128);
+text-align: center;
+width: 50%;
+height: 100%;
+}
+
+
+.span1 {
+  padding: 0px 0px 2px; 
+  margin: 0px; 
+  border-collapse: collapse; 
+  list-style: none; 
+  color: rgb(72, 85, 104);
+  font-size: 30px; 
+  display: inline-block;
+}
+
+.go-help {
+  padding: 18px 0px 0px; 
+  margin: 0px; 
+  border-collapse: collapse; 
+  list-style: none; 
+  text-decoration: none; 
+  color: rgb(77, 114, 167); 
+  display: inline-block; 
+  font-size: 15px; 
+  font-weight: bold;
+}
+
+</style>
+
+
+
+</head>
+<body style="">
+  <header id="header">
+    <div id="logo">
+      <h1 id="logoh1">www.koheishingai.com</h1>
+      <ul id="logoul">
+        <li style="font-family: メイリオ, 'ヒラギノ角ゴ Pro W3', 'MS PGothic', 'MS UI Gothic';" id="search">
+          <div id="swrap">
+            <input placeholder="Search on www.kohishingai.com..." type="text" value="" name="s" id="s">
+          </div>
+        </li>
+        <li style="width: 114px; font-family: メイリオ, 'ヒラギノ角ゴ Pro W3', 'MS PGothic', 'MS UI Gothic';"><a href="/article" class="" id="article">記事</a></li>
+        <li style="width: 97px; font-family: メイリオ, 'ヒラギノ角ゴ Pro W3', 'MS PGothic', 'MS UI Gothic';" id="collectionli"><a href="/collections" class="" id="collection">コレクション</a></li>
+        <li style="width: 111px; font-family: メイリオ, 'ヒラギノ角ゴ Pro W3', 'MS PGothic', 'MS UI Gothic';"><a href="/works" style="" id="works">作品</a></li>
+        <li style="width: 67px; font-family: メイリオ, 'ヒラギノ角ゴ Pro W3', 'MS PGothic', 'MS UI Gothic';"><a href="/about" class="" id="about">紹介</a></li>
+      </ul>
+      <div id="topmenu"></div>
+    </div>
+  </header>
+  <div id="wrap">
+    
+    <div id="wcontent">
+      
+<div id="animation" class="ani4">
+<div class="visual">
+<div class="slide">
+<div class="slide-item item1">
+<p id="tit1" class="tit">Welcome!!</p>
+<p id="txt2" class="txt">I am Web Developer.</p>
+</div>
+<div class="slide-item item2">
+<p class="tit" style="padding: 165px 0px 10px 101px; margin: 0px; border-collapse: collapse; list-style: none; line-height: 1em; font-size: 64px;">Buy with Fancy</p>
+<p class="txt" style="padding: 0px 0px 20px 104px; margin: 0px; border-collapse: collapse; list-style: none; line-height: 1em; font-size: 17px; color: rgb(255, 199, 0);">ONE STORE. THOUSANDS OF THINGS.</p>
+</div>
+<div class="slide-item item3">
+<p class="tit" style="padding: 49px 0px 10px; margin: 0px; border-collapse: collapse; list-style: none; line-height: 1em; font-size: 64px;">Fancy Gifts</p>
+<p class="txt" style="padding: 0px 0px 20px; margin: 0px; border-collapse: collapse; list-style: none; line-height: 1em; font-size: 17px; color: rgb(124, 18, 21);">GIFT CARDS · GROUP GIFTS · FANCY BOX</p>
+</div>
+<div class="slide-item item4">
+<p id="tiu" class="tit">Find &amp; Collect</p>
+<p id="tid" class="txt">BUILD YOUR COLLECTION. EXPRESS YOUR STYLE.</p>
+</div>
+<div class="slide-item item5">
+<p class="tit" style="padding: 165px 0px 10px 101px; margin: 0px; border-collapse: collapse; list-style: none; line-height: 1em; font-size: 64px;">Earn Credits</p>
+<p class="txt" style="padding: 0px 0px 20px 106px; margin: 0px; border-collapse: collapse; list-style: none; line-height: 1em; font-size: 17px; color: rgb(66, 200, 191);">INVITE YOUR FRIENDS. GET REWARDED.</p>
+</div>
+</div>
+<a href="http://fancy.com/about#" class="btn-next"></a>
+<a href="http://fancy.com/about#" class="btn-prev"></a>
+</div>
+</div>
+<div class="join-text">
+<p id="titlep">I create everything, design everything, fix everything about the Web.</p>
+<a href='/collections'><button class="btn-blue btn-join" type="button">View Collection</button></a>
+</div>
+
+<div class="business-support">
+  <ul class='bsul'>
+    <li class='bsli'>
+      <span class="span1">What can I do?</span>
+        <br style="padding: 0px; margin: 0px; border-collapse: collapse; list-style: none;"><br style="padding: 0px; margin: 0px; border-collapse: collapse; list-style: none;"><a href="/about" class="go-help">Detail</a>
+    </li>
+    <li class='bsli' style="border-left: 1px solid rgb(223, 223, 223);">
+      <span class="span1">Join as a Business</span>
+      <br style="padding: 0px; margin: 0px; border-collapse: collapse; list-style: none;"><br style="padding: 0px; margin: 0px; border-collapse: collapse; list-style: none;"><a href="http://fancy.com/help" class="go-help">Join</a>
+    </li>
+  </ul>
+      
+    </div>
+    </div>
+  </div>
+  <footer id="footer">
+    <ul id="left">
+      <li>© 2013 <span>www.koheishingai.com</span></li>
+    </ul>
+    <ul id="right">
+      <li id="twitter">Twitter</li>
+      <li id="github">Github</li>
+      <li id="codepen">Codepen</li>
+      <li id="mail">Mail</li>
+    </ul>
+  </footer>
+
+  
+  <div id="remote">
+
+      <div id="rhead">...</div>
+      <div class="icon" id="phone"></div>
+      <div class="icon" id="color"></div>
+      <div class="icon last" id="top"></div>
+    </div>
+
+<div id="colorm" style="">
+  <div id="cbox" style="margin-left: 869px; margin-top: 413.5px;">
+    <div id="close"></div>
+    <div id="mhead">
+      <span>Chose a theme</span>
+    </div>
+    <div id="mcont">
+      <div id="mconth"></div>
+      <div id="mcontt">From KoheiShingai</div>
+      <div id="wrapomc">
+      <div class="outmc onm">
+        <div class="outmcin">
+          <div class="themes" id="defgre">Default Greyscale</div>
+        </div>
+      </div>
+      <div class="outmc">
+        <div class="outmcin">
+          <div class="themes" id="dayt">Day Dream</div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div id="okbtn">OK</div>
+  </div>
+</div>
+  <script>
+$(function(){
+  $('#tit1').fitText(1.7);
+  $('#txt2').fitText(5);
+  $('#titlep').fitText(3.8);
+  $('.btn-blue.btn-join').fitText(0.9);
+});
+</script>
+  <script>
+    $(function(){
+
+      //socket section
+  
+      var socket = io.connect('http://localhost:8081');
+  
+      socket.on('examples', function (data) {
+     
+      //alert(data);
+  
+      });
+
+
+    });
+  </script>
+
+</body>
+</html>
