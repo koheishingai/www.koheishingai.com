@@ -211,6 +211,9 @@ function adslide(){
 
   vish = vish*430;
 
+  if($("window").innerWidth() < 701){
+    vish = vish +100;
+  }
   $(".visual").css('padding', vish+'px 0px 0px');
 
   $(".slide-item").css('width', visw).css('height', vish).css('background-size', visw+'px '+vish+'px');
