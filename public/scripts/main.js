@@ -67,11 +67,7 @@ init();
   };
 
 
-  $('#logoh1').click(function(){
 
-    location.href='/'
-
-  });
 
 
 
