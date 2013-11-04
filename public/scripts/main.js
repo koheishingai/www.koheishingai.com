@@ -123,7 +123,6 @@ function acbox(){
         adslide();
 
         timeline();
-        adnav();
         if($("window").innerWidth() > 700){
         $('#tit1').fitText(1.5);
 
@@ -132,6 +131,8 @@ function acbox(){
         $('#titlep').fitText(3.8);
 
         $('.btn-blue.btn-join').fitText(0.9);
+        }else{
+        adnav();
         }
     }, 200);
   });
@@ -242,7 +243,13 @@ function adslide(){
     mskh = mskh - 42;
     mskh = mskh/2;
     mskh = mskh - 158;
+    alert(mskh);
     $("#msktxt").css("top", mskh);
+    window.addEventListener("load", function() {
+    setTimeout(function() {
+        scrollBy(0, 1);
+    }, 100);
+}, false);
   };
 
 
