@@ -123,6 +123,7 @@ function acbox(){
         adslide();
 
         timeline();
+        adnav();
         if($("window").innerWidth() > 700){
         $('#tit1').fitText(1.5);
 
