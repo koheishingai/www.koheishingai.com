@@ -1056,9 +1056,17 @@ border-radius: 0px;
   }
 
 
-  #footer #left {
-    display: none;
-  }
+#footer #left {
+display: block;
+position: absolute;
+width: 100%;
+padding: 0px;
+line-height: 126px;
+}
+
+#footer #left li {
+color: #D6D6D6;
+}
 
 
   #wraplbox{
@@ -1078,12 +1086,12 @@ border-radius: 0px;
   }
 
 
-  #footer #right {
-    float: none;
-    padding-right: 0px;
-    padding-left: 0px;
-  }
-
+#footer #right {
+float: none;
+padding-right: 0px;
+padding-left: 0px;
+line-height: 84px;
+}
 
   #footer #right li {
     padding-right: 8px;
@@ -1224,23 +1232,17 @@ width: 25% !important;
 
 
 #wcontent {
-
 width: 100% !important;
-
 }
 
 
 
 .article {
-
 width: 100% !important;
-
+height:180px !important;
 border: none;
-
 box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
-
 -moz-box-shadow: 0 0px 2px rgba(0, 0, 0, 0.05);
-
 -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
 
 }
@@ -1329,7 +1331,40 @@ padding: 0px 15px 20px 0px !important;
 font-size: 17px !important;
 }
 
+#toptitle {
+display: none !important;
+}
 
+.tiu{
+display: none !important;
+}
 
+#timeline {
+margin-bottom: 13px !important;
+}
+
+#innerwrap {
+padding: 20px 20px 20px 20px !important;
+}
+
+.dlcon {
+height: 115px !important;
+}
+.wdtitle {
+font-size: 15px !important;
+padding: 8px 18px 8px !important;
+}
+
+.main-forums-column {
+padding: 27px 10px 30px !important;
+}
+
+.forum-titles {
+font-size: 12px !important;
+}
+
+.bbp-header {
+height: 14px !important;
+}
 
 }
