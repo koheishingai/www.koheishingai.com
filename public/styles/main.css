@@ -1099,6 +1099,7 @@ width:100%;
     padding-right: 8px;
     padding-left: 8px;
     width: 13%;
+    min-width: 65px;
   }
 
 
