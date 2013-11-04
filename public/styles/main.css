@@ -934,6 +934,15 @@ line-height: 40px;
 color: #919191;
 }
 
+#colormsk::before {
+font-family: "FontAwesome";
+content: "\f043";
+margin-left: 0px;
+font-size: 31px;
+line-height: 41px;
+color: #919191;
+}
+
 
 @media screen and (max-width: 75em){
   #logoh1{
