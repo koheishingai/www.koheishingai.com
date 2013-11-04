@@ -229,6 +229,11 @@ function adslide(){
   timewidth = timewidth/3 - 1;
   $('.nt').css('margin-left', timewidth);
   }
+  
+  $("#topmenu").click(function(){
+    $("body").attr("ontouchmove", "event.preventDefault()").css("overflow-y", "hidden");
+    $("#menumsk").show(); 
+  });
 
 
 

@@ -29,30 +29,30 @@ body{
 
 #header{
   width:100%;
-  height:400px;
+  height:82px;
   margin:0px auto;
   padding:0px;
   color:#333;
   overflow:hidden;
   position:relative;
   font-weight: 100;
+  z-index:6;
 }
 
 #wrap {
-  width: 90%;
-  height: auto;
-  min-width: 300px;
-  min-height: 661px;
-  margin: -250px auto 40px;
-  padding: 20px 0 0 0;
-  background: rgba(255, 255, 255, 1);
-  color: #333;
-  overflow: hidden;
-  position: relative;
-  -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.25);
+width: 90%;
+height: auto;
+min-width: 300px;
+min-height: 661px;
+margin: 56px auto -21px;
+padding: 20px 0 0 0;
+background: rgba(255, 255, 255, 1);
+color: #333;
+overflow: hidden;
+position: relative;
+-webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.4);
+box-shadow: 0 1px 10px rgba(0, 0, 0, 0.25);
 }
-
 
 #wraphead {
   font-size: 0;
@@ -203,6 +203,7 @@ body{
   overflow:hidden;
   text-decoration: none;
   background: url(http://farm8.staticflickr.com/7309/10369891525_c74e7a23ab_o.png) no-repeat;
+  cursor: pointer;
 }
 
 #wraplbox dl {
@@ -901,6 +902,26 @@ text-indent: 8px;
 line-height: 32px;
 }
 
+#menumsk {
+position: absolute;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+z-index: 5;
+background: #fff;
+display:none;
+}
+
+.btn-prev:hover {
+opacity: 1;
+}
+
+.btn-next:hover {
+opacity: 1;
+}
+
+
 
 @media screen and (max-width: 75em){
   #logoh1{
@@ -1030,7 +1051,7 @@ line-height: 31px;
 }
 #wrap {
 width: 100%;
-margin: -348px 0 0 0;
+margin: 0px 0 0 0;
 padding: 10px 0 0 0;
 border-radius: 0px;
 }
@@ -1041,13 +1062,14 @@ border-radius: 0px;
   }
 
 
-  #footer {
-    background: rgba(223, 223, 223, 0);
-    margin: 0px 0 0 0;
-    height: 0px;
-    box-shadow: none;
-    min-height: 45px;
-  }
+#footer {
+background: rgba(223, 223, 223, 0);
+margin: 0px 0 0 0;
+height: 0px;
+box-shadow: none;
+min-height: 45px;
+border-top: none;
+}
 
 
   #footwrap{
@@ -1374,6 +1396,10 @@ font-size: 12px !important;
 
 .bbp-header {
 height: 14px !important;
+}
+
+#header{
+  height:52px;
 }
 
 }
