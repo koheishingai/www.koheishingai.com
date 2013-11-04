@@ -243,13 +243,12 @@ function adslide(){
     mskh = mskh - 42;
     mskh = mskh/2;
     mskh = mskh - 158;
-    alert(mskh);
     $("#msktxt").css("top", mskh);
-    window.addEventListener("load", function() {
-    setTimeout(function() {
-        scrollBy(0, 1);
-    }, 100);
-}, false);
+    if(mskh < 75){
+    $(".msktxts").css("font-size", "21px").css("line-height", "33px");
+    }else{
+    $(".msktxts").css("font-size", "25px").css("line-height", "40px");
+    }
   };
 
 
