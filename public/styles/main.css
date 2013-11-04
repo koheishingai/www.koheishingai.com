@@ -924,8 +924,7 @@ opacity: 1;
 #msktxt {
 width: 100%;
 position: absolute;
-top: 80px;
-height: 100%;
+top: 0px;
 }
 
 .msktxts {

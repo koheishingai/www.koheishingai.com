@@ -233,7 +233,15 @@ function adslide(){
   $("#topmenu").click(function(){
     $("body").attr("ontouchmove", "event.preventDefault()").css("overflow-y", "hidden");
     $("#menumsk").show(); 
+    adnav();
   });
+  
+  function adnav(){
+    var mskh = $("#menumsk").innerHeight();
+    mskh = mskh/2;
+    mskh = mskh - 200;
+    $("#msktxt").css("top", mskh);
+  };
 
 
 
