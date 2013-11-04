@@ -68,7 +68,12 @@ init();
       $('#register').attr('value', '登録');
       $('#register').text('登録');
       $('#new-thread-button').text('新しい記事を投稿');
-      $('#new-thread-button').attr('value', '新しい記事を投稿');
+      $('#new-thread-button').attr('value', '新しい記事を投稿');      
+      $('#msabout').text('紹介');
+      $('#msworks').text('作品');
+      $('#mscollections').text('コレクション');
+      $('#msarticle').text('記事');
+
 
     }else{
 
