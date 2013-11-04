@@ -239,6 +239,7 @@ function adslide(){
   });
   
   function adnav(){
+    $('body,html').animate({scrollTop: 0}, 0);
     var mskh = $("body").innerHeight();
     mskh = mskh - 42;
     mskh = mskh/2;
