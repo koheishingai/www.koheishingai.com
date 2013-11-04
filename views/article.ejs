@@ -80,7 +80,7 @@ border: 1px dashed #CFCFCF;
 
 .bbp-header {
 box-sizing: border-box;
-height: 28px;
+height: 24px;
 }
 
 .forum-titles {
@@ -258,8 +258,8 @@ color: rgb(117, 117, 117);
 }
 
 .login-password.login-field {
-    box-sizing: border-box; 
-    margin: 0px 0px 10px;
+box-sizing: border-box;
+margin: 0px 0px 20px;
 }
 
 .login-remember.login-field {
@@ -291,6 +291,8 @@ color: rgb(117, 117, 117);
 label {
     box-sizing: border-box;
 }
+
+
 
 #rememberme {
     margin: 0px; 
@@ -445,8 +447,8 @@ box-shadow: rgb(100, 100, 100) 1px 0px 1px, rgb(134, 134, 134) 0px 1px 1px, rgb(
         <ul id="forums-list-0" class="bbp-forums">
           <li class="bbp-header">
             <ul class="forum-titles">
-              <li class="bbp-forum-info">Title</li>
-              <li class="bbp-forum-freshness">Freshness</li>
+              <li id="titlear" class="bbp-forum-info">Title</li>
+              <li id="fness" class="bbp-forum-freshness">Freshness</li>
             </ul>
           </li>
           <li class="bbp-body">
@@ -484,7 +486,7 @@ box-shadow: rgb(100, 100, 100) 1px 0px 1px, rgb(134, 134, 134) 0px 1px 1px, rgb(
   <aside class="grid-1-3">
     <div class="module">
       <form name="loginform" id="loginform" action="http://css-tricks.com/wp-login.php" method="post" class="forums-login-form">
-      <h4 class="mdh4">Login</h4>
+      <h4 id="logh4" class="mdh4">Login</h4>
       <div class="login-username login-field">
         <label for="user_login" class="screen-reader">Username</label>
         <input type="text" name="log" id="user_login" class="input" value="" size="20" placeholder="Username">
@@ -493,15 +495,11 @@ box-shadow: rgb(100, 100, 100) 1px 0px 1px, rgb(134, 134, 134) 0px 1px 1px, rgb(
         <label for="user_pass" class="screen-reader">Password</label>
         <input type="password" name="pwd" id="user_pass" class="input" value="" size="20" placeholder="Password">
       </div>
-      <div class="login-remember login-field">
-        <label>
-        <input name="rememberme" type="checkbox" id="rememberme" value="forever">&nbsp;Remember Me</label>
-      </div>
       <div class="login-submit">
         <input type="submit" name="wp-submit" id="wp-submit" class="button" value="Log In">
       </div>
     </form>
-    <p class="modp">Forget you password? You can&nbsp;<a href="http://css-tricks.com/wp-login.php?action=lostpassword" style="box-sizing: border-box; color:rgb(100, 140, 197); text-decoration: none;">reset it</a>.</p><p class="modp">Not a Member Yet? Registering is free and only takes a second.</p><a href="http://css-tricks.com/wp-login.php?action=register" class="button" id="register">Register</a></div><div class="module"><a href="http://css-tricks.com/forums/#" class="disabled button full-width-button" id="new-thread-button">Post New Article</a>
+    <p id="regs" class="modp">Registering is free and only takes a second.</p><a href="http://css-tricks.com/wp-login.php?action=register" class="button" id="register">Register</a></div><div class="module"><a href="http://css-tricks.com/forums/#" class="disabled button full-width-button" id="new-thread-button">Post New Article</a>
     </div>
     </aside>
     </div>
