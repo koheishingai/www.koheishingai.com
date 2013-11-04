@@ -237,9 +237,10 @@ function adslide(){
   });
   
   function adnav(){
-    var mskh = $("#menumsk").innerHeight();
+    var mskh = $("body").innerHeight();
+    mskh = mskh - 42;
     mskh = mskh/2;
-    mskh = mskh - 200;
+    mskh = mskh - 158;
     $("#msktxt").css("top", mskh);
   };
 
