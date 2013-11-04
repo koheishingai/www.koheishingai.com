@@ -123,7 +123,6 @@ function acbox(){
         adslide();
 
         timeline();
-        $("#menumsk").hide(); 
         if($("window").innerWidth() > 700){
         $('#tit1').fitText(1.5);
 
@@ -133,6 +132,7 @@ function acbox(){
 
         $('.btn-blue.btn-join').fitText(0.9);
         }else{
+        adnav();
         }
     }, 200);
   });
