@@ -1344,7 +1344,7 @@ display: none !important;
 }
 
 #timeline {
-margin-bottom: 17px !important;
+margin: -48px auto 15px 0 !important;
 }
 
 #innerwrap {
@@ -1363,7 +1363,7 @@ padding: 8px 18px 8px !important;
 #wraptitle {
 position: absolute;
 width: 100%;
-bottom: -93px;
+bottom: -91px;
 }
 
 .main-forums-column {
