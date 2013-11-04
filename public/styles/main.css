@@ -1092,12 +1092,13 @@ float: none;
 padding-right: 0px;
 padding-left: 0px;
 line-height: 45px;
-width: 13%;
+width:100%;
 }
 
   #footer #right li {
     padding-right: 8px;
     padding-left: 8px;
+    width: 13%;
   }
 
 
