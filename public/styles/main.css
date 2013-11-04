@@ -1057,7 +1057,7 @@ border-radius: 0px;
 
 
 #footer #left {
-display: block;
+display: none !important;
 position: absolute;
 width: 100%;
 padding: 0px;
