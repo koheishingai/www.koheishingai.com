@@ -921,6 +921,19 @@ opacity: 1;
 opacity: 1;
 }
 
+#msktxt {
+width: 100%;
+position: absolute;
+top: 50%;
+margin-top: -144px;
+}
+
+.msktxts {
+font-family: inherit;
+font-size: 25px;
+line-height: 40px;
+color: #919191;
+}
 
 
 @media screen and (max-width: 75em){
