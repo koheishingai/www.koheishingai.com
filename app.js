@@ -27,6 +27,11 @@ app.get('/about', routes.about);
 app.get('/works', routes.works);
 app.get('/collections', routes.collections);
 app.get('/article', routes.article);
+app.get('/en', routes.enindex);
+app.get('/en/about', routes.enabout);
+app.get('/en/works', routes.enworks);
+app.get('/en/collections', routes.encollections);
+app.get('/en/article', routes.enarticle);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
