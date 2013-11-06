@@ -20,6 +20,27 @@ exports.article = function(req, res){
   res.render('article', { title: 'Express' });
 };
 
+exports.enindex = function(req, res){
+  res.render('enindex', { title: 'Express' });
+};
+
+exports.enabout = function(req, res){
+  res.render('enabout', { title: 'Express' });
+};
+
+exports.enworks = function(req, res){
+  res.render('enworks', { title: 'Express' });
+};
+
+exports.encollections = function(req, res){
+  res.render('encollections', { title: 'Express' });
+};
+
+exports.enarticle = function(req, res){
+  res.render('enarticle', { title: 'Express' });
+};
+
+
 io.sockets.on('connection', function (socket) {
 socket.emit('examples', 'aaa');
 socket.on('on', function (data) {

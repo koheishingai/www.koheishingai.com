@@ -817,6 +817,7 @@ background-image: linear-gradient(top,#4d90fe,#4787ed);
 border: 1px solid #8A8A8A;
 color: #fff;
 margin-top: 10px;
+cursor:pointer;
 }
 
 
@@ -943,6 +944,11 @@ line-height: 41px;
 color: #919191;
 }
 
+.outmc:hover {
+outline: 2px solid #ACACAC;
+}
+
+
 
 @media screen and (max-width: 75em){
   #logoh1{
@@ -981,10 +987,9 @@ color: #919191;
   }
 
 
-  #wrap {
-    margin: -280px auto 0 auto;
-  }
-
+#wrap {
+margin: 56px auto 0 auto;
+}
 
   #innerwrap {
     padding: 15px 20px 15px 20px;
