@@ -171,6 +171,7 @@ $('#close').click(function(){
 
   });
 
+
   
 function adslide(){
 
@@ -219,10 +220,10 @@ function adslide(){
 
   function adads(){
     var adsw = $("#addsimg").innerWidth();
+        adsw = adsw/600;
+    adsw = adsw*500;
     $("#addsimg").css("height", adsw);
+    $("#addsimg2").css("height", adsw);
   }
-
-
-
 
 });

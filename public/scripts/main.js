@@ -196,7 +196,10 @@ function adslide(){
   timewidth = timewidth - 52;
   timewidth = timewidth/3 - 1;
   $('.nt').css('margin-left', timewidth);
-  }
+  };
+
+
+
   
   $("#topmenu").click(function(){
     $("body").attr("ontouchmove", "event.preventDefault()").css("overflow-y", "hidden");
@@ -220,7 +223,10 @@ function adslide(){
 
   function adads(){
     var adsw = $("#addsimg").innerWidth();
+    adsw = adsw/600;
+    adsw = adsw*500;
     $("#addsimg").css("height", adsw);
+    $("#addsimg2").css("height", adsw);
   }
 
 

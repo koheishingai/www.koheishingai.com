@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
-<html><head>
+<html>
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>www.koheishingai.com</title>
@@ -7,327 +8,399 @@
 <link href="http://fonts.googleapis.com/css?family=Titillium+Web:400,700" rel="stylesheet" type="text/css">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 <link href="/styles/main.css" rel="stylesheet">
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js"></script>
+ <style>
+    #wcontent {
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+    }
+
+    .visual {
+      padding: 430px 0px 0px;
+      margin: 0px 20px;
+      border-collapse: collapse; 
+      list-style: none; 
+      height: auto; 
+      color: rgb(255, 255, 255); 
+      font-size: 20px; 
+      text-align: center; 
+      background-image: none; 
+      position: relative; 
+      overflow: hidden;
+    }
+
+    .slide {
+      padding: 0px;
+      margin: 0px;
+      border-collapse: collapse;
+      list-style: none;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      -webkit-transition: 0.2s;
+      transition: 0.2s;
+      width: 4700px;
+    }
+
+    .slide-item.item1 {
+      padding: 0px;
+      margin: 0px; 
+      border-collapse: collapse; 
+      list-style: none; 
+      background-image: url(http://farm6.staticflickr.com/5505/10624711695_2c87385f18_o.png); 
+      background-size: 940px 430px; 
+      float: left; 
+      width: 940px; 
+      height: 430px; 
+      text-align: right; 
+      background-position: 0px 0px; 
+      background-repeat: no-repeat no-repeat;
+    }
+
+    .slide-item.item2 {
+      padding: 0px; 
+      margin: 0px; 
+      border-collapse: collapse; 
+      list-style: none; 
+      background-image: url(http://d1c5t9xsxiurcy.cloudfront.net/_static_gen/_ui/images/business/about-discover2.c11ab07348ca.jpg); 
+      background-size: 940px 430px; 
+      float: left; 
+      width: 940px; 
+      height: 430px; 
+      text-align: left; 
+      background-position: 0px 0px; 
+      background-repeat: no-repeat no-repeat;
+    }
+
+    .slide-item.item3 {
+      padding: 0px; 
+      margin: 0px; 
+      border-collapse: collapse; 
+      list-style: none; 
+      background-image: url(http://d1c5t9xsxiurcy.cloudfront.net/_static_gen/_ui/images/business/about-discover3.04e79d1c4cba.jpg); 
+      background-size: 940px 430px; 
+      float: left; 
+      width: 940px; 
+      height: 430px; 
+      background-position: 0px 0px; 
+      background-repeat: no-repeat no-repeat;
+    }
+
+    .slide-item.item4 {
+      padding: 0px; 
+      margin: 0px; 
+      border-collapse: collapse; 
+      list-style: none; 
+      background-image: url(http://d1c5t9xsxiurcy.cloudfront.net/_static_gen/_ui/images/business/about-discover4.e2ba254cbb6b.jpg); 
+      background-size: 940px 430px; 
+      float: left; 
+      width: 940px; 
+      height: 430px; 
+      background-position: 0px 0px; 
+      background-repeat: no-repeat no-repeat;
+    }
+
+    .slide-item.item5 {
+      padding: 0px; 
+      margin: 0px; 
+      border-collapse: collapse; 
+      list-style: none; 
+      background-image: url(http://d1c5t9xsxiurcy.cloudfront.net/_static_gen/_ui/images/business/about-discover5.5cc187f3d090.jpg); 
+      background-size: 940px 430px; 
+      float: left; 
+      width: 940px; 
+      height: 430px; 
+      text-align: left; 
+      background-position: 0px 0px; 
+      background-repeat: no-repeat no-repeat;
+    }
+
+    .btn-next {
+      padding: 0px; 
+      margin: 0px; 
+      border-collapse: collapse; 
+      list-style: none; 
+      text-decoration: none; 
+      color: rgb(77, 114, 167); 
+      background-image: url(http://farm3.staticflickr.com/2889/10644048236_785cdc102d_o.png); 
+      background-size: 800px 240px; 
+      position: absolute; 
+      top: 50%; 
+      width: 48px; 
+      height: 49px; 
+      opacity: 0.7; 
+      right: 20px; 
+      background-position: -270px -180px; 
+      background-repeat: no-repeat no-repeat;
+      margin-top: -15px;
+    }
+
+    .btn-prev {
+      padding: 0px;
+      margin: 0px;
+      border-collapse: collapse;
+      list-style: none;
+      text-decoration: none;
+      color: rgb(77, 114, 167);
+      background-image: url(http://farm3.staticflickr.com/2889/10644048236_785cdc102d_o.png);
+      background-size: 800px 240px;
+      position: absolute;
+      top: 50%;
+      width: 48px;
+      height: 49px;
+      opacity: 0.7;
+      left: 20px;
+      background-position: -210px -180px;
+      background-repeat: no-repeat no-repeat;
+      margin-top: -15px;
+    }
+
+    .join-text {
+      padding: 0px 0px 15px; 
+      margin: 0px; 
+      border-collapse: collapse; 
+      list-style: none; 
+      text-align: center; 
+      font-size: 32px; 
+      line-height: 36px;
+    }
+
+    #titlep {
+      padding: 30px 0px 28px;
+      margin: 0px;
+      border-collapse: collapse;
+      list-style: none;
+      color: rgb(128,128,128);
+    }
+
+    .btn-blue.btn-join {
+      padding: 0px 20px; 
+      margin: 0px 0px 20px; 
+      border-collapse: collapse; 
+      list-style: none; 
+      vertical-align: middle; 
+      background-color: rgb(35, 142, 207); 
+      cursor: pointer; 
+      border: 0px; 
+      color: rgb(255, 255, 255); 
+      box-shadow: none; 
+      border-top-left-radius: 2px; 
+      border-top-right-radius: 2px; 
+      border-bottom-right-radius: 2px; 
+      border-bottom-left-radius: 2px; 
+      text-shadow: rgba(77, 123, 196, 0.74902) 0px 1px 1px; 
+      font-size: 18px; 
+      line-height: 47px; 
+      min-width: 217px; 
+      height: auto;
+    }
+
+    #content {
+      padding: 0px 0px 40px; 
+      margin: 0px; 
+      border-collapse: collapse; 
+      list-style: none; 
+      position: relative; 
+      float: left; 
+      width: 980px; 
+      min-height: 427px;
+    }
+
+    #animation{
+      padding: 0px; 
+      margin: 0px; 
+      border-collapse: collapse;
+      list-style: none;
+    }
+
+    #tid {
+      padding: 0px 0px 20px; 
+      margin: 0px; 
+      border-collapse: collapse; 
+      list-style: none; 
+      line-height: 1em; 
+      font-size: 17px; 
+      color: rgb(91, 137, 151);
+    }
+
+    #tiu {
+      padding: 49px 0px 10px; 
+      margin: 0px; 
+      border-collapse: collapse; 
+      list-style: none; 
+      line-height: 1em; 
+      font-size: 64px; 
+      color: rgb(35, 47, 53);
+    }
+
+    #tit1 {
+      padding: 37px 39px 10px 0px;
+      margin: 0px;
+      border-collapse: collapse;
+      list-style: none;
+      line-height: 1em;
+      font-size: 64px;
+      width: 100%;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+    }
+
+    #txt2 {
+      padding: 0px 42px 20px 0px; 
+      margin: 0px; 
+      border-collapse: collapse; 
+      list-style: none; 
+      line-height: 1em; 
+      font-size: 17px;
+      width:100%;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .business-support {
+      padding: 20px 0px 20px;
+      margin: 0px 20px;
+      border-collapse: collapse;
+      list-style: none;
+      clear: both;
+      background-image: none;
+    }
+
+    .bsul {
+      padding: 0px;
+      margin: 0px auto;
+      border-collapse: collapse;
+      list-style: none;
+      box-shadow: none;
+      width: 100%;
+      height: 345px;
+    }
+
+    .bsli {
+      padding: 58px 0px 0px;
+      margin: 0px;
+      border-collapse: collapse;
+      list-style: none;
+      float: left;
+      font-size: 18px;
+      line-height: 26px;
+      color: rgb(128, 128, 128);
+      text-align: center;
+      width: 50%;
+      height: 100%;
+    }
+
+
+    .span1 {
+      padding: 0px 0px 2px;
+      margin: 0px;
+      border-collapse: collapse;
+      list-style: none;
+      color: rgb(72, 85, 104);
+      font-size: 30px;
+      display: block;
+    }
+
+    .go-help {
+      padding: 0px 0px 0px;
+      margin: 0px;
+      border-collapse: collapse;
+      list-style: none;
+      text-decoration: none;
+      color: rgb(77, 114, 167);
+      display: inline-block;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .inbox {
+      width: 100%;
+      height: 180px;
+    }
+
+    #inb2 {
+      padding: 10px 10px 10px 23px;
+    }
+
+    #inb1 {
+      padding: 10px 10px 10px 23px;
+    }
+
+    #skill {
+      margin: 2px auto -2px;
+      outline: 0px;
+      vertical-align: baseline;
+      width: 100%;
+      height: 100%;
+    }
+
+    .skilli {
+      margin: 0px 13px 13px 0px;
+      padding: 0px;
+      border: 0px;
+      outline: 0px;
+      vertical-align: baseline;
+      background-color: transparent;
+      float: left;
+      position: relative;
+      text-align: center;
+    }
+
+    .skillimg {
+      margin: 0px;
+      padding: 0px;
+      border: 0px;
+      outline: 0px;
+      vertical-align: baseline;
+      background-color: transparent;
+      display: block;
+    }
+
+    #skillul {
+      margin: 20px auto;
+      padding: 0px;
+      border: 0px;
+      outline: 0px;
+      vertical-align: baseline;
+      background-color: transparent;
+      list-style: none;
+      width: 248px;
+    }
+
+    .skillul2 {
+      margin: 46px auto !important;
+    }
+
+    @media (max-width: 43.75em){
+      .inbox {
+        height: 153px;
+      }
+
+      #skillul {
+        margin: 10px auto;
+        padding: 0px;
+        border: 0px;
+        outline: 0px;
+        vertical-align: baseline;
+        background-color: transparent;
+        list-style: none;
+        width: 248px;
+      }
+
+      .skillul2{
+        margin: 40px auto !important;
+      }
+    }
+  </style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="/scripts/detect.js"></script>
 <script src="/scripts/fittext.js"></script>
 <script src='/scripts/outclick.js'></script>
 <script src="/scripts/main.js"></script>
 <script src="/scripts/theme.js" async></script>
 <script src="/scripts/slide.js" async></script>
-<style>
-
-#wcontent {
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
-}
-
-
-
-.visual {
-  padding: 430px 0px 0px;
-  margin: 0px 20px;
-  border-collapse: collapse; 
-  list-style: none; 
-  height: auto; 
-  color: rgb(255, 255, 255); 
-  font-size: 20px; 
-  text-align: center; 
-  background-image: none; 
-  position: relative; 
-  overflow: hidden;
-}
-
-.slide {
-padding: 0px;
-margin: 0px;
-border-collapse: collapse;
-list-style: none;
-position: absolute;
-top: 0px;
-left: 0px;
--webkit-transition: 0.2s;
-transition: 0.2s;
-width: 4700px;
-}
-
-.slide-item.item1 {
-  padding: 0px;
-  margin: 0px; 
-  border-collapse: collapse; 
-  list-style: none; 
-  background-image: url(http://farm6.staticflickr.com/5505/10624711695_2c87385f18_o.png); 
-  background-size: 940px 430px; 
-  float: left; 
-  width: 940px; 
-  height: 430px; 
-  text-align: right; 
-  background-position: 0px 0px; 
-  background-repeat: no-repeat no-repeat;
-}
-
-.slide-item.item2 {
-  padding: 0px; 
-  margin: 0px; 
-  border-collapse: collapse; 
-  list-style: none; 
-  background-image: url(http://d1c5t9xsxiurcy.cloudfront.net/_static_gen/_ui/images/business/about-discover2.c11ab07348ca.jpg); 
-  background-size: 940px 430px; 
-  float: left; 
-  width: 940px; 
-  height: 430px; 
-  text-align: left; 
-  background-position: 0px 0px; 
-  background-repeat: no-repeat no-repeat;
-}
-
-.slide-item.item3 {
-  padding: 0px; 
-  margin: 0px; 
-  border-collapse: collapse; 
-  list-style: none; 
-  background-image: url(http://d1c5t9xsxiurcy.cloudfront.net/_static_gen/_ui/images/business/about-discover3.04e79d1c4cba.jpg); 
-  background-size: 940px 430px; 
-  float: left; 
-  width: 940px; 
-  height: 430px; 
-  background-position: 0px 0px; 
-  background-repeat: no-repeat no-repeat;
-}
-
-.slide-item.item4 {
-  padding: 0px; 
-  margin: 0px; 
-  border-collapse: collapse; 
-  list-style: none; 
-  background-image: url(http://d1c5t9xsxiurcy.cloudfront.net/_static_gen/_ui/images/business/about-discover4.e2ba254cbb6b.jpg); 
-  background-size: 940px 430px; 
-  float: left; 
-  width: 940px; 
-  height: 430px; 
-  background-position: 0px 0px; 
-  background-repeat: no-repeat no-repeat;
-}
-
-.slide-item.item5 {
-  padding: 0px; 
-  margin: 0px; 
-  border-collapse: collapse; 
-  list-style: none; 
-  background-image: url(http://d1c5t9xsxiurcy.cloudfront.net/_static_gen/_ui/images/business/about-discover5.5cc187f3d090.jpg); 
-  background-size: 940px 430px; 
-  float: left; 
-  width: 940px; 
-  height: 430px; 
-  text-align: left; 
-  background-position: 0px 0px; 
-  background-repeat: no-repeat no-repeat;
-}
-
-.btn-next {
-    padding: 0px; 
-    margin: 0px; 
-    border-collapse: collapse; 
-    list-style: none; 
-    text-decoration: none; 
-    color: rgb(77, 114, 167); 
-    background-image: url(http://farm3.staticflickr.com/2889/10644048236_785cdc102d_o.png); 
-    background-size: 800px 240px; 
-    position: absolute; 
-    top: 50%; 
-    width: 48px; 
-    height: 49px; 
-    opacity: 0.7; 
-    right: 20px; 
-    background-position: -270px -180px; 
-    background-repeat: no-repeat no-repeat;
-    margin-top: -15px;
-}
-
-.btn-prev {
-padding: 0px;
-margin: 0px;
-border-collapse: collapse;
-list-style: none;
-text-decoration: none;
-color: rgb(77, 114, 167);
-background-image: url(http://farm3.staticflickr.com/2889/10644048236_785cdc102d_o.png);
-background-size: 800px 240px;
-position: absolute;
-top: 50%;
-width: 48px;
-height: 49px;
-opacity: 0.7;
-left: 20px;
-background-position: -210px -180px;
-background-repeat: no-repeat no-repeat;
-margin-top: -15px;
-}
-
-.join-text {
-    padding: 0px 0px 15px; 
-    margin: 0px; 
-    border-collapse: collapse; 
-    list-style: none; 
-    text-align: center; 
-    font-size: 32px; 
-    line-height: 36px;
-}
-
-#titlep {
-padding: 30px 0px 28px;
-margin: 0px;
-border-collapse: collapse;
-list-style: none;
-color: rgb(128,128,128);
-}
-
-.btn-blue.btn-join {
-    padding: 0px 20px; 
-    margin: 0px 0px 20px; 
-    border-collapse: collapse; 
-    list-style: none; 
-    vertical-align: middle; 
-    background-color: rgb(35, 142, 207); 
-    cursor: pointer; 
-    border: 0px; 
-    color: rgb(255, 255, 255); 
-    box-shadow: none; 
-    border-top-left-radius: 2px; 
-    border-top-right-radius: 2px; 
-    border-bottom-right-radius: 2px; 
-    border-bottom-left-radius: 2px; 
-    text-shadow: rgba(77, 123, 196, 0.74902) 0px 1px 1px; 
-    font-size: 18px; 
-    line-height: 47px; 
-    min-width: 217px; 
-    height: auto;
-}
-
-#content {
-    padding: 0px 0px 40px; 
-    margin: 0px; 
-    border-collapse: collapse; 
-    list-style: none; 
-    position: relative; 
-    float: left; 
-    width: 980px; 
-    min-height: 427px;
-}
-
-#animation{
-padding: 0px; 
-margin: 0px; 
-border-collapse: collapse;
-list-style: none;
-}
-
-#tid {
-  padding: 0px 0px 20px; 
-  margin: 0px; 
-  border-collapse: collapse; 
-  list-style: none; 
-  line-height: 1em; 
-  font-size: 17px; 
-  color: rgb(91, 137, 151);
-}
-
-#tiu {
-    padding: 49px 0px 10px; 
-    margin: 0px; 
-    border-collapse: collapse; 
-    list-style: none; 
-    line-height: 1em; 
-    font-size: 64px; 
-    color: rgb(35, 47, 53);
-}
-
-#tit1 {
-padding: 37px 39px 10px 0px;
-margin: 0px;
-border-collapse: collapse;
-list-style: none;
-line-height: 1em;
-font-size: 64px;
-width: 100%;
-font-family: 'Open Sans', sans-serif;
-font-weight: 700;
-}
-
-#txt2 {
-    padding: 0px 42px 20px 0px; 
-    margin: 0px; 
-    border-collapse: collapse; 
-    list-style: none; 
-    line-height: 1em; 
-    font-size: 17px;
-    width:100%;
-    font-family: 'Open Sans', sans-serif;
-}
-
-.business-support {
-padding: 20px 0px 20px;
-margin: 0px 20px;
-border-collapse: collapse;
-list-style: none;
-clear: both;
-background-image: none;
-}
-
-.bsul {
-padding: 0px;
-margin: 0px auto;
-border-collapse: collapse;
-list-style: none;
-box-shadow: none;
-width: 100%;
-height: 345px;
-}
-
-.bsli {
-padding: 58px 0px 0px;
-margin: 0px;
-border-collapse: collapse;
-list-style: none;
-float: left;
-font-size: 18px;
-line-height: 26px;
-color: rgb(128, 128, 128);
-text-align: center;
-width: 50%;
-height: 100%;
-}
-
-
-.span1 {
-  padding: 0px 0px 2px; 
-  margin: 0px; 
-  border-collapse: collapse; 
-  list-style: none; 
-  color: rgb(72, 85, 104);
-  font-size: 30px; 
-  display: inline-block;
-}
-
-.go-help {
-  padding: 18px 0px 0px; 
-  margin: 0px; 
-  border-collapse: collapse; 
-  list-style: none; 
-  text-decoration: none; 
-  color: rgb(77, 114, 167); 
-  display: inline-block; 
-  font-size: 15px; 
-  font-weight: bold;
-}
-
-</style>
-
-
-
 </head>
-<body style="">
+
+<body>
   <header id="header">
     <div id="logo">
       <a href="http://wkc.azurewebsites.net" style="text-decolation:none;"><h1 id="logoh1">www.koheishingai.com</h1></a>
@@ -337,7 +410,7 @@ height: 100%;
             <input placeholder="Search on www.kohishingai.com..." type="text" value="" name="s" id="s">
           </div>
         </li>
-         <li style="width:114px;"><a href="/article"  id="article">Article</a></li>
+        <li style="width:114px;"><a href="/article"  id="article">Article</a></li>
         <li id="collectionli" id="collectionli" style="width:75px;"><a href="/collections"  id="collection">Collections</a></li>
         <li style="width:111px;"><a href="/works" style=""  id="works">Works</a></li>
         <li style="width:67px;"><a href="/about"  id="about">About</a></li>
@@ -381,16 +454,102 @@ height: 100%;
 <p id="titlep">I create everything, design everything, fix everything about the Web.</p>
 <a href='/collections'><button class="btn-blue btn-join" type="button">View Collections</button></a>
 </div>
-
+<script src="/scripts/animindex.js"></script>
 <div class="business-support">
   <ul class='bsul'>
     <li class='bsli'>
       <span id="wcid" class="span1">What I can do</span>
-        <br style="padding: 0px; margin: 0px; border-collapse: collapse; list-style: none;"><br style="padding: 0px; margin: 0px; border-collapse: collapse; list-style: none;"><a href="/about" class="go-help">Detail</a>
+
+
+
+
+
+
+<div class="inbox" id="inb1">
+        <section id="skill">
+<ul id="skillul">
+    <li class="skilli">
+      <img class="skillimg" src="http://farm4.staticflickr.com/3672/10746217765_168840785c_o.png" alt="HTML5" width="49" height="49">
+    </li>
+    <li  class="skilli">
+      <img  class="skillimg" src="http://farm3.staticflickr.com/2857/10746214775_7326cc58d4_o.png" alt="CSS" width="49" height="49">
+    </li>
+    <li  class="skilli">
+      <img class="skillimg" src="http://farm8.staticflickr.com/7371/10746144675_4b95caf00d_o.png" alt="js" width="49" height="49">
+    </li>
+    <li class="skilli">
+      <img class="skillimg" src="http://farm4.staticflickr.com/3687/10746139025_7c852f4d86_o.png" alt="node" width="49" height="49">
+    </li>
+    <li class="skilli">
+      <img class="skillimg" src="http://farm8.staticflickr.com/7396/10746527233_11011ac7fc_o.png" alt="jQuery" width="49" height="49">
+    </li>
+    <li class="skilli">
+      <img class="skillimg" src="http://farm6.staticflickr.com/5519/10746299006_90ac265b1b_o.png" alt="CrossDevice" width="49" height="49">
+    </li>
+    <li class="skilli">
+      <img class="skillimg" src="http://farm8.staticflickr.com/7437/10746323324_e14540833a_o.png" alt="Photoshop" width="49" height="49">
+    </li>
+    <li>
+      <img class="skillimg" src="http://farm6.staticflickr.com/5526/10746522493_29bddb0112_o.png" alt="illustrator" width="49" height="49">
+    </li>
+  </ul>
+
+        </section>
+      </div>
+
+
+
+
+      <a href="/about" class="go-help">Detail</a>
     </li>
     <li class='bsli' style="border-left: 1px solid rgb(223, 223, 223);">
       <span id="wcij" class="span1">Join as a Business</span>
-      <br style="padding: 0px; margin: 0px; border-collapse: collapse; list-style: none;"><br style="padding: 0px; margin: 0px; border-collapse: collapse; list-style: none;"><a href="http://fancy.com/help" class="go-help">Join</a>
+      
+
+
+<div class="inbox" id="inb2">
+         <section id="skill">
+
+
+
+
+
+<ul id="skillul" class="skillul2">
+    <li class="skilli">
+      <img class="skillimg" src="http://farm4.staticflickr.com/3757/10748437694_0270cb50d9_o.png" alt="HTML5" width="49" height="49">
+    </li>
+    <li  class="skilli">
+      <img  class="skillimg" src="http://farm4.staticflickr.com/3707/10748371925_9d2c15b08b_o.png" alt="CSS" width="49" height="49">
+    </li>
+    <li  class="skilli">
+      <img class="skillimg" src="http://farm6.staticflickr.com/5499/10748633323_49c7640ef7_o.png" alt="js" width="49" height="49">
+    </li>
+    <li class="skilli">
+      <img class="skillimg" src="http://farm8.staticflickr.com/7436/10748326035_ce1f8e8f6f_o.png" alt="node" width="49" height="49">
+    </li>
+  </ul>
+
+
+
+
+
+
+
+
+
+         </section>
+      </div>
+
+
+
+
+
+
+
+
+
+
+<a href="http://fancy.com/help" class="go-help">Join</a>
     </li>
   </ul>
       
@@ -454,7 +613,7 @@ height: 100%;
 </div>
 </div>
 
-  <script>
+<script>
 $(function(){
 if($("window").innerWidth() > 700){
   $('#tit1').fitText(1.7);
@@ -464,7 +623,8 @@ if($("window").innerWidth() > 700){
   }
 });
 </script>
-  <script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js"></script>
+<script>
     $(function(){
 
       //socket section
@@ -479,7 +639,7 @@ if($("window").innerWidth() > 700){
 
 
     });
-  </script>
+</script>
 
 </body>
 </html>

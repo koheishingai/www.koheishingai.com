@@ -6,6 +6,9 @@ var express = require('express')
 
 var app = express();
 
+worksanum = 0;
+worksatitle = [];
+
 // all environments
 app.set('port', process.env.PORT || 1337);
 app.set('views', __dirname + '/views');

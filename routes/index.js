@@ -42,8 +42,18 @@ exports.enarticle = function(req, res){
 
 
 io.sockets.on('connection', function (socket) {
-socket.emit('examples', 'aaa');
+
 socket.on('on', function (data) {
     console.log(data);
 });
+
+socket.on('worksinit', function (data) {
+  var test = require('worksa');
+  console.log(worksanum);
+  socket.emit('articleini', worksanum);
+  for(var i = 0; i <  worksanum; i++){
+   socket.emit('articleti', worksatitle[i]);
+  }
+});
+
 });
