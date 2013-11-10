@@ -8,6 +8,7 @@ var app = express();
 
 worksanum = 0;
 worksatitle = [];
+worksain = [];
 
 // all environments
 app.set('port', process.env.PORT || 1337);
@@ -35,6 +36,7 @@ app.get('/en/about', routes.enabout);
 app.get('/en/works', routes.enworks);
 app.get('/en/collections', routes.encollections);
 app.get('/en/article', routes.enarticle);
+app.get('/codegarage', routes.codegarage);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

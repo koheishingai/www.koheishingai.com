@@ -75,6 +75,7 @@ init();
       $('#mscollections').text('コレクション');
       $('#msarticle').text('記事');
       $('#mmti').text('テーマ選択');
+      $('#adp').text('お勧めのWebIDEです。骨の折れる開発環境のセットアップから解放されます。');
     }else{
 
  

@@ -40,6 +40,9 @@ exports.enarticle = function(req, res){
   res.render('enarticle', { title: 'Express' });
 };
 
+exports.codegarage = function(req, res){
+  res.render('codegarage', { title: 'Express' });
+};
 
 io.sockets.on('connection', function (socket) {
 
@@ -48,12 +51,27 @@ socket.on('on', function (data) {
 });
 
 socket.on('worksinit', function (data) {
-  var test = require('worksa');
+  require('worksa');
   console.log(worksanum);
   socket.emit('articleini', worksanum);
-  for(var i = 0; i <  worksanum; i++){
-   socket.emit('articleti', worksatitle[i]);
+  if(data == 0){
+    for(var i = 0; i <  3; i++){
+      socket.emit('articleti', worksatitle[0][i+1]);
+      
+    }
+    socket.emit('articleti0', worksatitle[0][1], worksatitle[0][3]);
+  }else if(data == 1){
+    for(var i = 3; i <  6; i++){
+     socket.emit('articleti', worksatitle[0][i+1]);
+    }
+    socket.emit('articleti0', worksatitle[0][4], worksatitle[0][6]);
   }
+delete require.cache[require.resolve('worksa')]
+});
+
+socket.on('cins', function (data) {
+console.log('cins'+data);
+  socket.emit('articlein', worksain[0][data+1], data);
 });
 
 });

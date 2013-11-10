@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset='utf-8'>
@@ -77,19 +77,20 @@
     line-height: 17px;
   }
 
-  #timeline {
-    padding: 0;
-    width: 100%;
-    height: 55px;
-    overflow: hidden;
-    margin: -44px auto 0 0;
-    position: relative;
-    background: url('http://farm4.staticflickr.com/3817/10643192385_9348c126c1_o.png') no-repeat left 45px;
-    line-height: 5;
-    margin-bottom: 0px;
-    display: block;
-    background-size: 100% 5px;
-  }
+#timeline {
+padding: 0;
+width: 100%;
+height: 55px;
+overflow: hidden;
+margin: -44px auto 0 0;
+position: relative;
+background: url('http://farm4.staticflickr.com/3817/10643192385_9348c126c1_o.png') no-repeat left 45px;
+line-height: 5;
+margin-bottom: 0px;
+display: block;
+background-size: 100% 5px;
+opacity: 0.7;
+}
 
   #dates {
     margin: 0;
@@ -114,7 +115,7 @@
   }
 
   #dates li:hover{
-    margin-top: -5px;
+   
   }
 
   .time {
@@ -238,16 +239,17 @@
   }
 
 
-  #addsimg2 {
-    display: block;
-    max-width: 100%;
-    margin: 0 0 10px 0;
-    background: url(http://farm8.staticflickr.com/7368/10749204984_8b50bd44eb_o.png);
-    background-position: 0px;
-    opacity: 0.99;
-    box-shadow: 0 0 3px rgb(162, 162, 162), inset 0 0 304px rgba(255, 255, 255, 0);
-    border-radius: 0px;
-  }
+#addsimg2 {
+display: block;
+max-width: 100%;
+margin: 0 0 10px 0;
+background: url(http://farm8.staticflickr.com/7368/10749204984_8b50bd44eb_o.png);
+background-position: 0px;
+opacity: 0.99;
+box-shadow: 0 0 3px rgb(162, 162, 162), inset 0 0 304px rgba(255, 255, 255, 0);
+border-radius: 0px;
+overflow: hidden;
+}
 
   #adp {
     font-size: 15px;
@@ -611,31 +613,20 @@ opacity: 0.95;
   }
 }
 
-@-webkit-keyframes myfirst{
-0% {box-shadow: 0 0 3px rgb(0, 0, 0), inset 0 0 304px rgb(0, 0, 0);}
-100% {box-shadow: 0 0 3px rgb(0, 0, 0), inset 0 0 304px rgb(255, 255, 255);}
+@media (max-width: 43.75em){
+  .toptitle{
+    display:none !important;
+  }
 }
 
-@-moz-keyframes myfirst{
-0% {box-shadow: 0 0 3px rgb(0, 0, 0), inset 0 0 304px rgb(0, 0, 0);}
-100% {box-shadow: 0 0 3px rgb(0, 0, 0), inset 0 0 304px rgb(255, 255, 255);}
-}
 
-@-o-keyframes myfirst{
-0% {box-shadow: 0 0 3px rgb(0, 0, 0), inset 0 0 304px rgb(0, 0, 0);}
-100% {box-shadow: 0 0 3px rgb(0, 0, 0), inset 0 0 304px rgb(255, 255, 255);}
-}
- 
-@keyframes myfirst{
-0% {box-shadow: 0 0 3px rgb(0, 0, 0), inset 0 0 304px rgb(0, 0, 0);}
-100% {box-shadow: 0 0 3px rgb(0, 0, 0), inset 0 0 304px rgb(255, 255, 255);}
-}
 </style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="/scripts/outclick.js"></script>
 <script src='/scripts/main.js'></script>
 <script src="/scripts/theme.js" async></script>
 </head>
+
 <body>
   <header id='header'>
     <div id='logo'>
@@ -654,146 +645,129 @@ opacity: 0.95;
       <div id='topmenu'></div>
     </div>
   </header>
+  
   <div id='wrap'>
     <div id="wcontent">
-      <div id="innerwrap">
-      <div id="wraplbox">
+    <div id="innerwrap">
+    <div id="wraplbox">    
+    <div id="timeline">
+      <ul id="dates" style="">
+        <li><div id="tt4" class="time">4</div></li>
+        <li class="nt"><div id="tt3" class="time">3</div></li>
+        <li class="nt"><div id="tt2" class="time">2</div></li>
+        <li id="nt1" class="nt"><div id="tt1" class="time">1</div></li>
+      </ul>
+    </div>
+
+    <div id="wraptitle" class="tiu">
+      <div id="leftmenu" class="menus lme"></div>
+      <p class="toptitle">Code Garage &gt; www.koheishingai.com - Works</p>
+      <div id="rightmenu" class="menus rme"></div></div>
         
-        <div id="timeline">
-<ul id="dates" style="">
-  <li>
-    <div class="time">4</div>
-  </li>
-  <li class="nt" style="margin-left: 129.66666666666666px;">
-    <div class="time">3</div>
-  </li>
-  <li class="nt" style="margin-left: 129.66666666666666px;">
-    <div class="time">2</div>
-  </li>
-    <li class="nt" style="margin-left: 129.66666666666666px; background: url('http://farm6.staticflickr.com/5493/10643032576_f51ee7f6d7_o.png') left 41px no-repeat;">
-    <div class="time" style="color: #FCAF8B; font-weight: 700;">1</div>
-  </li>
-</ul>
-</div>
-
-   <div id="wraptitle" class="tiu"><div id="leftmenu" class="menus"></div><p class="toptitle">Code Garage &gt; www.koheishingai.com - Works</p><div id="rightmenu" class="menus"></div></div>
-        <div id="wartis">
-
-<div class="loader">
-  <div>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <div class="second">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <div class="third">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</div>
-
-
-
+      <div id="wartis">
+        <div class="loader">
+          <div>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="second">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="third">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
-   
-   
-        
-   <div id="wraptitle"  class="tid"><div id="leftmenu" class="menus"></div><p class="toptitle">Code Garage &gt; www.koheishingai.com - Works</p><div id="rightmenu" class="menus"></div></div>
-        
-        
       </div>
-
-       <div id="wraprbox">
-     <dl>
-  <div class="dlhead" id="sponsor">SPONSER</div>
-   <div id="adds">
-     <a href="https://www.nitrous.io/" target="_blank">
-    <div id="addsimg" style="height: 277.5px;"></div>
-     </a>
-     <p id="adp">I recommend using Nitrous.io for web development. Nitrous.IO will takes away the pain of setting up dev environments. It'll save you a ton of time.</p>
+ 
+      <div id="wraptitle" class="tid">
+        <div id="leftmenu" class="menus lme"></div>
+        <p class="toptitle">Code Garage &gt; www.koheishingai.com - Works</p>
+        <div id="rightmenu" class="menus rme"></div>
+      </div>
     </div>
-   </dl>
 
-    <dl>
-  <div class="dlhead" id="sponsor">SPONSER</div>
-   <div id="adds">
-     <a href="http://codepen.io/" target="_blank">
-    <div id="addsimg2" style="height: 277.5px;">
-
-
-<section id="cdp">
-  
-<svg class="logod shad">
-<path class="inner-box" d="M113.431,38.814c-0.01-0.072-0.028-0.14-0.04-0.212c-0.024-0.137-0.049-0.275-0.085-0.409
-	c-0.021-0.081-0.051-0.158-0.076-0.236c-0.039-0.119-0.078-0.239-0.125-0.355c-0.033-0.081-0.072-0.161-0.109-0.239
-	c-0.051-0.11-0.104-0.218-0.166-0.322c-0.044-0.078-0.092-0.152-0.139-0.227c-0.065-0.102-0.133-0.2-0.206-0.295
-	c-0.054-0.072-0.11-0.143-0.167-0.212c-0.078-0.089-0.158-0.179-0.244-0.263c-0.063-0.065-0.126-0.131-0.194-0.191
-	c-0.089-0.081-0.182-0.158-0.276-0.233c-0.073-0.057-0.145-0.113-0.221-0.167c-0.029-0.018-0.054-0.042-0.081-0.06L59.441,0.819
-	c-1.638-1.092-3.771-1.092-5.409,0L2.171,35.393c-0.027,0.018-0.052,0.042-0.081,0.06c-0.076,0.054-0.148,0.11-0.22,0.167
-	c-0.095,0.075-0.188,0.152-0.276,0.233c-0.068,0.06-0.131,0.125-0.196,0.191c-0.084,0.083-0.165,0.173-0.241,0.263
-	c-0.058,0.069-0.115,0.14-0.169,0.212c-0.072,0.095-0.14,0.194-0.204,0.295c-0.049,0.075-0.096,0.149-0.141,0.227
-	c-0.06,0.104-0.113,0.212-0.166,0.322c-0.038,0.078-0.076,0.158-0.109,0.239c-0.048,0.116-0.086,0.236-0.125,0.355
-	c-0.025,0.078-0.054,0.155-0.076,0.236c-0.036,0.134-0.06,0.272-0.085,0.409c-0.012,0.072-0.03,0.14-0.039,0.212
-	C0.016,39.022,0,39.235,0,39.45v34.574c0,0.215,0.016,0.427,0.045,0.639c0.009,0.069,0.027,0.14,0.039,0.208
-	c0.025,0.138,0.049,0.275,0.085,0.409c0.022,0.081,0.051,0.158,0.076,0.236c0.039,0.119,0.078,0.239,0.125,0.358
-	c0.033,0.081,0.071,0.159,0.109,0.236c0.052,0.11,0.106,0.217,0.166,0.325c0.045,0.075,0.091,0.149,0.141,0.224
-	c0.064,0.102,0.132,0.2,0.204,0.296c0.054,0.074,0.111,0.143,0.169,0.211c0.076,0.089,0.157,0.179,0.241,0.263
-	c0.064,0.065,0.127,0.131,0.196,0.19c0.088,0.081,0.181,0.159,0.276,0.233c0.072,0.057,0.144,0.114,0.22,0.167
-	c0.028,0.018,0.054,0.042,0.081,0.06l51.861,34.575c0.819,0.545,1.762,0.82,2.706,0.82c0.941,0,1.884-0.275,2.704-0.82
-	l51.861-34.575c0.027-0.018,0.052-0.042,0.081-0.06c0.076-0.053,0.148-0.11,0.221-0.167c0.094-0.074,0.187-0.152,0.276-0.233
-	c0.067-0.06,0.13-0.125,0.194-0.19c0.085-0.084,0.166-0.174,0.244-0.263c0.057-0.068,0.113-0.137,0.167-0.211
-	c0.073-0.096,0.141-0.194,0.206-0.296c0.046-0.075,0.094-0.149,0.139-0.224c0.062-0.108,0.115-0.215,0.166-0.325
-	c0.037-0.078,0.076-0.155,0.109-0.236c0.048-0.119,0.086-0.239,0.125-0.358c0.025-0.078,0.055-0.155,0.076-0.236
-	c0.036-0.134,0.061-0.271,0.085-0.409c0.012-0.068,0.03-0.14,0.04-0.208c0.027-0.212,0.043-0.424,0.043-0.639V39.45
-	C113.474,39.235,113.458,39.022,113.431,38.814z M61.613,13.988l38.205,25.468L82.753,50.872L61.613,36.73V13.988z M51.861,13.988
-	V36.73L30.722,50.872L13.656,39.456L51.861,13.988z M9.752,48.577l12.2,8.16l-12.2,8.16V48.577z M51.861,99.485L13.656,74.017
-	l17.066-11.413l21.139,14.139V99.485z M56.738,68.272L39.491,56.736l17.247-11.535l17.245,11.535L56.738,68.272z M61.613,99.485
-	V76.743l21.14-14.139l17.065,11.413L61.613,99.485z M103.722,64.896l-12.198-8.16l12.198-8.16V64.896z"></path>
-</svg>
-  
-</section>
-<div id="adf"></div>
-
-
-    </div>
-     </a>
-     <p id="adp">I recommend using Nitrous.io for web development. Nitrous.IO will takes away the pain of setting up dev environments. It'll save you a ton of time.</p>
-    </div>
-   </dl>
-
-
+    <div id="wraprbox">
+     
+     　<dl>
+         <div class="dlhead" id="sponsor">SPONSER</div>
+         <div id="adds">
+           <a href="https://www.nitrous.io/" target="_blank"><div id="addsimg" style="height: 277.5px;"></div></a>
+           <p id="adp">I recommend using Nitrous.io for web development. Nitrous.IO will takes away the pain of setting up dev environments. It'll save you a ton of time.</p>
+         </div>
+       </dl>
+     
+       <dl>
+         <div class="dlhead" id="sponsor">SPONSER</div>
+          <div id="adds">
+            <a href="http://codepen.io/" target="_blank">
+              <div id="addsimg2" style="height: 277.5px;">
+                <section id="cdp">
+                  <svg class="logod shad">
+                   <path class="inner-box" d="M113.431,38.814c-0.01-0.072-0.028-0.14-0.04-0.212c-0.024-0.137-0.049-0.275-0.085-0.409
+	               c-0.021-0.081-0.051-0.158-0.076-0.236c-0.039-0.119-0.078-0.239-0.125-0.355c-0.033-0.081-0.072-0.161-0.109-0.239
+	               c-0.051-0.11-0.104-0.218-0.166-0.322c-0.044-0.078-0.092-0.152-0.139-0.227c-0.065-0.102-0.133-0.2-0.206-0.295
+	               c-0.054-0.072-0.11-0.143-0.167-0.212c-0.078-0.089-0.158-0.179-0.244-0.263c-0.063-0.065-0.126-0.131-0.194-0.191
+	               c-0.089-0.081-0.182-0.158-0.276-0.233c-0.073-0.057-0.145-0.113-0.221-0.167c-0.029-0.018-0.054-0.042-0.081-0.06L59.441,0.819
+	               c-1.638-1.092-3.771-1.092-5.409,0L2.171,35.393c-0.027,0.018-0.052,0.042-0.081,0.06c-0.076,0.054-0.148,0.11-0.22,0.167
+	               c-0.095,0.075-0.188,0.152-0.276,0.233c-0.068,0.06-0.131,0.125-0.196,0.191c-0.084,0.083-0.165,0.173-0.241,0.263
+	               c-0.058,0.069-0.115,0.14-0.169,0.212c-0.072,0.095-0.14,0.194-0.204,0.295c-0.049,0.075-0.096,0.149-0.141,0.227
+	               c-0.06,0.104-0.113,0.212-0.166,0.322c-0.038,0.078-0.076,0.158-0.109,0.239c-0.048,0.116-0.086,0.236-0.125,0.355
+	               c-0.025,0.078-0.054,0.155-0.076,0.236c-0.036,0.134-0.06,0.272-0.085,0.409c-0.012,0.072-0.03,0.14-0.039,0.212
+	               C0.016,39.022,0,39.235,0,39.45v34.574c0,0.215,0.016,0.427,0.045,0.639c0.009,0.069,0.027,0.14,0.039,0.208
+	               c0.025,0.138,0.049,0.275,0.085,0.409c0.022,0.081,0.051,0.158,0.076,0.236c0.039,0.119,0.078,0.239,0.125,0.358
+	               c0.033,0.081,0.071,0.159,0.109,0.236c0.052,0.11,0.106,0.217,0.166,0.325c0.045,0.075,0.091,0.149,0.141,0.224
+	               c0.064,0.102,0.132,0.2,0.204,0.296c0.054,0.074,0.111,0.143,0.169,0.211c0.076,0.089,0.157,0.179,0.241,0.263
+	               c0.064,0.065,0.127,0.131,0.196,0.19c0.088,0.081,0.181,0.159,0.276,0.233c0.072,0.057,0.144,0.114,0.22,0.167
+	               c0.028,0.018,0.054,0.042,0.081,0.06l51.861,34.575c0.819,0.545,1.762,0.82,2.706,0.82c0.941,0,1.884-0.275,2.704-0.82
+	               l51.861-34.575c0.027-0.018,0.052-0.042,0.081-0.06c0.076-0.053,0.148-0.11,0.221-0.167c0.094-0.074,0.187-0.152,0.276-0.233
+	               c0.067-0.06,0.13-0.125,0.194-0.19c0.085-0.084,0.166-0.174,0.244-0.263c0.057-0.068,0.113-0.137,0.167-0.211
+	               c0.073-0.096,0.141-0.194,0.206-0.296c0.046-0.075,0.094-0.149,0.139-0.224c0.062-0.108,0.115-0.215,0.166-0.325
+	               c0.037-0.078,0.076-0.155,0.109-0.236c0.048-0.119,0.086-0.239,0.125-0.358c0.025-0.078,0.055-0.155,0.076-0.236
+	               c0.036-0.134,0.061-0.271,0.085-0.409c0.012-0.068,0.03-0.14,0.04-0.208c0.027-0.212,0.043-0.424,0.043-0.639V39.45
+	               C113.474,39.235,113.458,39.022,113.431,38.814z M61.613,13.988l38.205,25.468L82.753,50.872L61.613,36.73V13.988z M51.861,13.988
+	               V36.73L30.722,50.872L13.656,39.456L51.861,13.988z M9.752,48.577l12.2,8.16l-12.2,8.16V48.577z M51.861,99.485L13.656,74.017
+	               l17.066-11.413l21.139,14.139V99.485z M56.738,68.272L39.491,56.736l17.247-11.535l17.245,11.535L56.738,68.272z M61.613,99.485
+	               V76.743l21.14-14.139l17.065,11.413L61.613,99.485z M103.722,64.896l-12.198-8.16l12.198-8.16V64.896z"></path>
+                  </svg>
+               </section>
+               <div id="adf"></div>
+             </div>
+           </a>
+           <p id="adp">I recommend using Nitrous.io for web development. Nitrous.IO will takes away the pain of setting up dev environments. It'll save you a ton of time.</p>
+         </div>
+       </dl>
+     </div>
+   </div>
  </div>
+</div>
 
-      </div>
-    </div>
-  </div>
-  <footer id='footer'>
-    <ul id="left">
-      <li>© 2013 <span>www.koheishingai.com</span></li>
-    </ul>
+<footer id='footer'>
+  <ul id="left">
+    <li>© 2013 <span>www.koheishingai.com</span></li>
+  </ul>
     <ul id="right">
       <li id='twitter'>Twitter</li>
       <li id='github'>Github</li>
       <li id='codepen'>Codepen</li>
       <li id='mail'>Mail</li>
     </ul>
-  </footer>
+</footer>
   
-  <div id='remote'>
+<div id='remote'>
 
-      <div id='rhead'>...</div>
-      <div class='icon' id='phone'></div>
-      <div class='icon' id='color'></div>
-      <div class='icon last' id='top'></div>
-    </div>
+  <div id='rhead'>...</div>
+  <div class='icon' id='phone'></div>
+  <div class='icon' id='color'></div>
+  <div class='icon last' id='top'></div>
+</div>
 
 <div id="colorm" style="">
   <div id="cbox">
@@ -821,18 +795,16 @@ opacity: 0.95;
   </div>
 </div>
 
-  <div id="menumsk">
+<div id="menumsk">
   <div id="msktxt">
-  <a href="/about" style="text-decoration:none;"><div id="msabout" class="msktxts">About</div></a>
+    <a href="/about" style="text-decoration:none;"><div id="msabout" class="msktxts">About</div></a>
     <a href="/works" style="text-decoration:none;"><div id="msworks" class="msktxts">Works</div></a>
     <a id="collectionli" href="/collections" style="text-decoration:none;"><div id="mscollections" class="msktxts">Collections</div></a>
     <a href="/article" style="text-decoration:none;"><div id="msarticle" class="msktxts">Article</div></a>
-  <div class="msktxts" id="colormsk"></div>
-</div>
-  
+    <div class="msktxts" id="colormsk"></div>
   </div>
+</div>
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js"></script>
-<script src="/scripts/workcl.js"></script>
-  
+<script src="/scripts/workcl.js"></script>  
 </body>
 </html>
