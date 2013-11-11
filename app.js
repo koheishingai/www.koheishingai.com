@@ -9,6 +9,11 @@ var app = express();
 worksanum = 0;
 worksatitle = [];
 worksain = [];
+codegins = '';
+randid = '';
+cgsflg = 0;
+hash = "";
+codegout = '';
 
 // all environments
 app.set('port', process.env.PORT || 1337);

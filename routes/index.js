@@ -1,3 +1,6 @@
+
+
+
 var io = require('socket.io').listen(8081);
 
 exports.index = function(req, res){
@@ -49,6 +52,24 @@ io.sockets.on('connection', function (socket) {
 socket.on('on', function (data) {
     console.log(data);
 });
+
+socket.on('cgsin', function (data) {
+cgsflg = 0;
+hash = data.replace("#","");
+require('codeg');
+socket.emit('cdgout', codegout);
+delete require.cache[require.resolve('codeg')]
+});
+
+socket.on('publishit', function (data, rand) {
+cgsflg = 1;
+codegins = data;
+randid = rand.replace("#","");
+require('codeg');
+delete require.cache[require.resolve('codeg')]
+});
+
+
 
 socket.on('worksinit', function (data) {
   require('worksa');
