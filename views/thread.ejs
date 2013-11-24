@@ -464,7 +464,67 @@ label {
   .loader > div.third > span {
     background-color: #9C9898;
   }
+  
+#wrap {
+height: 100%;
+padding: 0 0 0 0;
+}
 
+body {
+margin: 0px;
+overflow-x: hidden;
+overflow-y: hidden;
+}
+
+#logo {
+margin: -72px -345px 0 0;
+}
+
+#wrap {
+height: 96%;
+padding: 0 0 0 0;
+margin: -69px auto -21px;
+}  
+
+#wrap {
+height: 96%;
+padding: 0 0 0 0;
+margin: -63px auto -21px;
+}
+
+#back {
+margin-top: 31px;
+font-size: 53px;
+color: rgba(255, 173, 0, 0.59);
+cursor:pointer;
+text-decoration:none;
+}
+
+@media (max-width: 43.75em){
+#wrap {
+margin: -52px auto -21px !important;
+height: 100% !important;
+}
+
+#incg{
+overflow:auto;
+-webkit-overflow-scrolling: touch;
+}
+
+#back {
+margin-top: 31px;
+font-size: 25px;
+color: rgba(255, 173, 0, 1);
+position: fixed;
+bottom: 0px;
+text-align: center;
+width: 100%;
+background: rgba(255, 255, 255, 0.7);
+}
+
+
+
+}
   @-webkit-keyframes loading {
     0% {
       border-radius: 0px;
@@ -551,7 +611,19 @@ label {
   }
 }
 
+#back {
+margin: 31px auto;
+font-size: 53px;
+color: rgba(173, 173, 173, 0.48);
+cursor: pointer;
+text-decoration: none;
+text-align:left;
+width:90%;
+}
 
+#back:hover{
+  color: rgba(173, 173, 173, 1);
+}
 
 @-webkit-keyframes spin {
   from {
@@ -610,6 +682,11 @@ min-height: 132px;
 <script src="/scripts/outclick.js"></script>
 <script src='/scripts/main.js'></script>
 <script src="/scripts/theme.js" async></script>
+<script>
+$(function(){
+     $('#wrap').css('height', $('body').innerHeight() - 120);
+});
+</script>
 </head>
 <body>
   <header id='header'>
@@ -630,73 +707,15 @@ min-height: 132px;
     </div>
   </header>
   <div id='wrap'>
-     <div id="wcontent">
-    <div class="grid group forums-wrap">
-  <div class="grid-2-3">
-    <div class="module main-forums-column">
-      <div id="bbpress-forums">
-        <ul id="forums-list-0" class="bbp-forums">
-          <li class="bbp-header">
-            <ul class="forum-titles">
-              <li id="titlear" class="bbp-forum-info">Title</li>
-              <li id="fness" class="bbp-forum-freshness">Freshness</li>
-            </ul>
-          </li>
-          <div id="arts">
-          
-              </div>
-            </ul>
-          </li>
-          <li class="bbp-footer">
-            <div class="tr">
-              <p class="td colspan4">&nbsp;</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <aside class="grid-1-3">
-    <div class="module">
-      <form name="loginform" id="loginform" action="http://css-tricks.com/wp-login.php" method="post" class="forums-login-form">
-      <h4 id="logh4" class="mdh4">Login</h4>
-      <div class="login-username login-field">
-        <label for="user_login" class="screen-reader">Username</label>
-        <input type="text" name="log" id="user_login" class="input" value="" size="20" placeholder="Username">
-      </div>
-      <div class="login-password login-field">
-        <label for="user_pass" class="screen-reader">Password</label>
-        <input type="password" name="pwd" id="user_pass" class="input" value="" size="20" placeholder="Password">
-      </div>
-      <div class="login-submit">
-        <input type="submit" name="wp-submit" id="wp-submit" class="button" value="Log In">
-      </div>
-    </form>
-    <p id="regs" class="modp">Registering is free and only takes a second.</p><a href="/register" class="button" id="register">Register</a></div><div class="module"><a href="http://css-tricks.com/forums/#" class="disabled button full-width-button" id="new-thread-button">Post New Article</a>
-    </div>
-    </aside>
-    </div>
-    </div>
-  </div>
-  <footer id='footer'>
-    <ul id="left">
-      <li>© 2013 <span>www.koheishingai.com</span></li>
-    </ul>
-    <ul id="right">
-      <li id='twitter'>Twitter</li>
-      <li id='github'>Github</li>
-      <li id='codepen'>Codepen</li>
-      <li id='mail'>Mail</li>
-    </ul>
-  </footer>
   
-  <div id='remote'>
-
-      <div id='rhead'>...</div>
-      <div class='icon' id='phone'></div>
-      <div class='icon' id='color'></div>
-      <div class='icon last' id='top'></div>
-    </div>
+  
+  
+  
+     <iframe id="incg" src="http://localhost:1337/codegarages#8hUDhfN" style="width:100%; height:100%; " seamless="" scrolling="yes" frameborder="0" onload="iFrameHeight()"></iframe>
+  </div>
+<a href="/article" style="text-decoration:none;">
+    <div id="back"><<< back</div>
+</a>
   
 <div id="colorm" style="">
   <div id="cbox">
@@ -740,6 +759,6 @@ min-height: 132px;
 
 </div>
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js"></script>
-<script src='scripts/article.js'></script>
+<script src=''></script>
 </body>
 </html>

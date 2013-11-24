@@ -467,39 +467,23 @@ background: rgb(250, 250, 250);
 
 
 .article {
-
 width: 400px;
-
 height: 400px;
-
 position: relative;
-
-overflow: visible;
-
+overflow: hidden;
 left: 0 !important;
-
 top: 0 !important;
-
 margin: 20px 0 20px;
-
 background: #FFF;
-
 padding: 10px;
-
 border: 1px solid #DFDFDF;
-
 box-shadow: 0 0px 2px rgba(0, 0, 0, 0.05);
-
 -moz-box-shadow: 0 0px 2px rgba(0, 0, 0, 0.05);
-
 -webkit-box-shadow: 0 0px 2px rgba(0, 0, 0, 0.05);
-
 border-radius: 0px;
-
 padding: 11px;
-
+cursor: pointer;
 }
-
 
 
 
@@ -677,7 +661,7 @@ color: rgb(116, 116, 116);
 }
   
   
-#colorm {
+#colorm, #colorm2 {
 background: rgba(255, 255, 255, 0.82);
 left: 0;
 position: absolute;
@@ -870,6 +854,13 @@ font-family: 'Titillium Web', sans-serif;
 color: #FFAE03;
 background: #fcd04b;    
 font-family: 'Oxygen', sans-serif;
+}
+
+#stra {
+background: rgb(255, 168, 199);
+color: white;
+font-family: helvetica;
+font-weight: bold;
 }
 
 #swrap {

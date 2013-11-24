@@ -1,9 +1,7 @@
 ﻿$(function(){
-
-
   var swflg = 0;
 
-
+  var timer = false;
   
 init();
 
@@ -12,28 +10,9 @@ init();
 
 
   adads();
-  
-  function getlang() {
-
-    try {
-
-      return (navigator.browserLanguage || navigator.language ||   navigator.userLanguage).substr(0,2)
-
-    }catch(e) {
-
-    return undefined;
-
-    }
-
-  }
-
- 
-
   function init(){
 
     if(getlang() == 'ja'){
-
-    //if(getlang() != 'ja'){
 
       $('#works').text('作品').css('font-family', ' "メイリオ", "ヒラギノ角ゴ Pro W3", "MS PGothic", "MS UI Gothic"');
 
@@ -78,21 +57,58 @@ init();
       $('#adp').text('お勧めのWebIDEです。骨の折れる開発環境のセットアップから解放されます。');
     }else{
 
- 
+  
   }
 
+    $('#phone').hide();
+    $('#remote').css('height', '111px');
   };
 
+  
+function adslide(){
 
+    var visw = $(".visual").innerWidth();
 
+    var vish = $(".visual").innerWidth()/940;
 
+    vish = vish*430;
 
+    if($("window").innerWidth() < 701){
+      vish = vish +100;
+    }
+    $(".visual").css('padding', vish+'px 0px 0px');
 
+    $(".slide-item").css('width', visw).css('height', vish).css('background-size', visw+'px '+vish+'px');
 
+  }
+  
 
-  var timer = false;
-
-
+  function timeline(){
+    var timewidth =  $('#dates').innerWidth(); 
+    timewidth = timewidth - 52;
+    timewidth = timewidth/3 - 1;
+    $('.nt').css('margin-left', timewidth);
+  };
+  function adnav(){
+    $('body,html').animate({scrollTop: 0}, 0);
+    var mskh = $("body").innerHeight();
+    mskh = mskh - 42;
+    mskh = mskh/2;
+    mskh = mskh - 158;
+    $("#msktxt").css("top", mskh);
+    if(mskh < 75){
+    $(".msktxts").css("font-size", "21px").css("line-height", "33px");
+    }else{
+    $(".msktxts").css("font-size", "25px").css("line-height", "40px");
+    }
+  };
+  function adads(){
+    var adsw = $("#addsimg").innerWidth();
+    adsw = adsw/600;
+    adsw = adsw*500;
+    $("#addsimg").css("height", adsw);
+    $("#addsimg2").css("height", adsw);
+  }
   $(window).resize(function() {
 
     if (timer !== false) {
@@ -100,7 +116,6 @@ init();
         clearTimeout(timer);
 
     }
-
 
     timer = setTimeout(function() {
 
@@ -125,27 +140,38 @@ init();
 
 
 
+  function getlang() {
 
+    try {
+
+      return (navigator.browserLanguage || navigator.language ||   navigator.userLanguage).substr(0,2)
+
+    }catch(e) {
+
+    return undefined;
+
+    }
+
+  }
   $('#top').click(function(){
 
-   $('body,html').animate({scrollTop: 0}, 300);
+    $('body,html').animate({scrollTop: 0}, 300);
 
-    return false;
+     return false;
   
   });
-
-
-  
-
-
-
+  $('.close2').click(function(){
+    $('#wrap3').fadeOut(function(){
+    $('#wrap2').fadeIn();
+    timeline();
+    adads();
+    });
+  });
   $('#search').click(function(){
 
     $('#swrap').show();
 
   });
-
-
   $('#swrap').skOuterClick(function() {
 
     if($('#swrap').css('display') == 'block'){
@@ -155,6 +181,7 @@ init();
     }
 
   });
+
 
 
   $('#search').click(function(event) {
@@ -167,70 +194,15 @@ init();
 
   });
 
+
   $('#swrap').skOuterClick(function() {
 
     $(this).hide();
 
   });
-
-  
-function adslide(){
-
-  var visw = $(".visual").innerWidth();
-
-  var vish = $(".visual").innerWidth()/940;
-
-  vish = vish*430;
-
-  if($("window").innerWidth() < 701){
-    vish = vish +100;
-  }
-  $(".visual").css('padding', vish+'px 0px 0px');
-
-  $(".slide-item").css('width', visw).css('height', vish).css('background-size', visw+'px '+vish+'px');
-
-  }
-  
-
-  function timeline(){
-  var timewidth =  $('#dates').innerWidth(); 
-  timewidth = timewidth - 52;
-  timewidth = timewidth/3 - 1;
-  $('.nt').css('margin-left', timewidth);
-  };
-
-
-
-  
   $("#topmenu").click(function(){
     $("body").attr("ontouchmove", "event.preventDefault()").css("overflow-y", "hidden");
     $("#menumsk").show(); 
     adnav();
   });
-  
-  function adnav(){
-    $('body,html').animate({scrollTop: 0}, 0);
-    var mskh = $("body").innerHeight();
-    mskh = mskh - 42;
-    mskh = mskh/2;
-    mskh = mskh - 158;
-    $("#msktxt").css("top", mskh);
-    if(mskh < 75){
-    $(".msktxts").css("font-size", "21px").css("line-height", "33px");
-    }else{
-    $(".msktxts").css("font-size", "25px").css("line-height", "40px");
-    }
-  };
-
-  function adads(){
-    var adsw = $("#addsimg").innerWidth();
-    adsw = adsw/600;
-    adsw = adsw*500;
-    $("#addsimg").css("height", adsw);
-    $("#addsimg2").css("height", adsw);
-  }
-
-
-
-
 });

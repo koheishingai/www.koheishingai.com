@@ -2,7 +2,7 @@
 
       //socket section
   
-      var socket = io.connect('http://localhost:8081');
+      var socket = io.connect('http://www.koheishingai.com:8080');
  
       var wpagenum = 0;
       
@@ -79,7 +79,7 @@
         if(wpagenum == 0){
           wpagenum = 1;    
           winit();
-          colc = 4;
+          colc = 3;
         };
       });
       
@@ -102,12 +102,21 @@
       console.log(data);
       $('.loader').fadeOut(function(){
         $('#wartis').css('height', 'auto');
-        $('#wartis').append('<dl><div id="col'+colc+'" class="dlcon" style="width:100%; height:146px; background:#fff;"></div><p class="wdtitle">'+data+'</p></dl>');     
+        $('#wartis').append('<dl class="class'+colc+'"><div id="col'+colc+'" class="dlcon" style="width:100%; height:146px; background:#fff;"></div><p class="wdtitle">'+data+'</p></dl>');     
+        $('.class'+colc).on('click', function(){
+        $('body,html').animate({scrollTop: 0}, 300);
+        socket.emit('wgetc', data);
+        console.log("gogo"+data);
+         });         
         socket.emit('cins', colc);
         colc++;
       });
       socket.on('articleti0', function (title1, title3) {
-        $('.toptitle').text(title3+" > "+title1);
+        if(title3 == 'HTML5 Physics'){
+          $('.toptitle').text(title1);
+        }else{
+          $('.toptitle').text(title3+" > "+title1);
+        }
       });
      
       $('.toptitle').css("opacity", "1");
@@ -120,7 +129,24 @@
       });
 
 
+      socket.on('wkcon', function (data) {     
+        $('#wrap2').fadeOut(function(){
+          $('#wrap3').append(data).fadeIn();
+        });
+      });
 
+      $('.close2').click(function(){
+      close2();
+        function close2(){
+      
+        $('#wrap3').fadeOut(function(){
+          $(this).text('').append('<div class="close2"></div>').on('click', function(){
+                 close2(); 
+         });         ;
+          $('#wrap2').fadeIn();
+        });
+  }
+      });
 
 
 

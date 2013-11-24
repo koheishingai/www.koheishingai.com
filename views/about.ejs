@@ -7,6 +7,7 @@
 <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 <link href="http://fonts.googleapis.com/css?family=Titillium+Web:400,700" rel="stylesheet" type="text/css">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Signika+Negative:600' rel='stylesheet' type='text/css'>
 <link href="/styles/main.css" rel="stylesheet">
 <style>
 #logoul li a:hover {
@@ -20,24 +21,34 @@
   
 body{
   overflow:hidden;
-}
-    
+}  
 @media (max-width: 43.75em){
-   #footer {
-     background: rgba(255, 255, 255, 1) !important;
-     border-top: 1px solid #ddd !important;
- }
+  #footer {
+    background: rgba(255, 255, 255, 1) !important;
+    border-top: 1px solid #ddd !important;
+    bottom: -52px;
+  }
+  iframe{
+    width: 100% !important;
+    height: 397 !important;
+    margin-top: 0px !important;
+  }
+  #wrap{
+    height:397px !important;
+  }
 }  
 </style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="/scripts/outclick.js"></script>
 <script src="/scripts/main.js"></script>
-<script src="/scripts/theme.js" async></script>
+<script src="/scripts/about.js"></script>
+<script src="/scripts/themeab.js" async></script>
 </head>
+
 <body>
   <header id="header">
     <div id="logo">
-      <a href="http://wkc.azurewebsites.net" style="text-decolation:none;"><h1 id="logoh1">www.koheishingai.com</h1></a>
+      <a href="http://www.koheishingai.com" style="text-decolation:none;"><h1 id="logoh1">www.koheishingai.com</h1></a>
       <ul id="logoul">
         <li id="search">
           <div id="swrap">
@@ -52,7 +63,11 @@ body{
       <div id="topmenu"></div>
     </div>
   </header>
- 
+  
+<div id="awrap" style="width: 100%; height: 100%;">
+<iframe src="http://player.vimeo.com/video/79740901" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" style="width: 80%; height: 475px; border: 12px solid white; border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; box-shadow: rgba(0, 0, 0, 0.4) 0px 1px 4px; margin-top: 16px;background: white;"></iframe>
+<p style="font-family: 'Signika Negative', sans-serif; text-align:center;color: rgb(131, 131, 131);font-size: 18px;">You don't need to contact me<br>I'll contact you, if you lack me</p>
+
   <footer id="footer">
     <ul id="left">
       <li>© 2013 <span>www.koheishingai.com</span></li>
@@ -66,13 +81,11 @@ body{
   </footer>
   
   <div id="remote">
-
-      <div id="rhead">...</div>
-      <div class="icon" id="phone"></div>
-      <div class="icon" id="color"></div>
-      <div class="icon last" id="top"></div>
-    </div>
-
+    <div id="rhead">...</div>
+    <div class="icon" id="phone"></div>
+    <div class="icon" id="color"></div>
+    <div class="icon last" id="top"></div>
+  </div>
 
 <div id="colorm" style="">
   <div id="cbox">
@@ -94,6 +107,11 @@ body{
           <div class="themes" id="dayt">Day Dream</div>
         </div>
       </div>
+      <div id="theme3" class="outmc">
+        <div class="outmcin">
+          <div class="themes" id="stra">Strawberry</div>
+        </div>
+      </div>
     </div>
     </div>
     <div id="okbtn">OK</div>
@@ -113,22 +131,10 @@ body{
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js"></script>  
   <script>
     $(function(){
-
-      //socket section
-  
-      var socket = io.connect('http://localhost:8081');
-  
-      socket.on('examples', function (data) {
-     
-      //alert(data);
-  
-      });
-
-
+      var socket = io.connect('http://www.koheishingai.com:8080');
+      socket.on('examples', function (data){});
     });
   </script>
   
-
-
 </body>
 </html>

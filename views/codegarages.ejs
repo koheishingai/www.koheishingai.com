@@ -6,7 +6,7 @@
 <title>CodeGarage</title>
 <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 <link href='http://fonts.googleapis.com/css?family=Oxygen+Mono' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <style>
 
@@ -22,7 +22,6 @@ body{
 margin:0px;
 overflow-x:hidden;
 overflow-y:auto;
-font-family: 'Open Sans', sans-serif;
 }
 
 .main {
@@ -615,50 +614,7 @@ cursor: pointer;
 color: rgb(211, 211, 211);
 }
 
-#done{
-color: rgb(175, 175, 175);
-font-size: 29px;
-display:none;
-}
 
-
-.entry{
-  margin:0px;
-  padding:0px;
-}
-
-.entry-box-container{
-  display: -webkit-flex;
-}
-
-.entry-box{
-  align-items: center; 
-  display: -webkit-flex; 
-  line-height: 1.75em; 
-  margin-bottom: 6px; 
-  max-width: 100%; 
-  overflow: hidden; 
-  padding-bottom: 1px;
-}
-
-.visit-entry{
-  display: -webkit-flex; 
-  min-width: 0px; 
-  -webkit-padding-start: 9px; 
-  background-size: 16px; 
-  font-size: 18px;
-}
-
-.title{
-  min-width: 0px; 
-  overflow: hidden; 
-  text-overflow: ellipsis; 
-  white-space: nowrap;
-}
-.title a{
-  color: rgb(48, 57, 66); 
-  text-decoration: none;
-}
 
 @media (max-width: 43.75em){
   #remote {
@@ -697,7 +653,6 @@ display:none;
 </style>
 </head>
 <body>
-<span class="window_label">Run</span>
 <div class="main">
   <!--- call editor -->
   <div id="editor_panel"></div>  
@@ -1134,13 +1089,12 @@ new sweDitor(document.getElementById('editor_panel'),{
 </script>
 <script>
 $(function(){
+
   $('#cods').click(function(){ 
     $('#switchBox').click();
   });
+  
   $('#share').click(function(){
-    $('.day-results').hide();
-    $('#done').hide();
-    $('.jump-view').show();
     if(elem == 1){
     $('#full-page-link').text("Save >>>").css("background", "rgb(103, 209, 32)");
     $('#full-page-url').attr('value', location.href);
@@ -1148,37 +1102,14 @@ $(function(){
     $('.window_label ').show();
     }
     if(monitor == 0){
-    $('#switchBox').click();
-    }else{
+   $('#switchBox').click();
+     }else{
 
     }
     $('#colorm').fadeIn();
     acbox();
   });
   
-  $('#clock').click(function(){
-  $('.day-results').show();
-  $('#pubss').text('History');
-  $('.jump-view').hide();
-  $('#done').hide();
-  var hist2 = localStorage.getItem('history');
-      if(hist2 == null){
-        $('#day-results').text('No History');
-      }else{
-        var cnt = 0;
-        for( i in JSON.parse(hist2)){
-          $('.day-results').append("<li class='entry'><div class='entry-box-container'><label class='entry-box'><div class='visit-entry'><div class='title'><a href='"+JSON.parse(hist2)[cnt]+"' id='id-0' target='_blank'>"+JSON.parse(hist2)[cnt]+"</a></div></div></label></div></li>");
-          cnt++;
-        }
-      }
-    if(monitor == 0){
-    $('#switchBox').click();
-    }else{
-
-    }
-    $('#colorm').fadeIn();
-    acbox();
-  });
   $('#close, #okbtn').click(function(){
     $('#colorm').hide();
     if($('#full-page-url').attr('value') != ""){
@@ -1192,7 +1123,9 @@ $(function(){
     }
   });
   
-  function acbox(){
+
+  
+      function acbox(){
     var cmw = $('#colorm').innerWidth();
     var boxw = $('#cbox').innerWidth();
     var cmh = $('#colorm').innerHeight();
@@ -1220,39 +1153,11 @@ $(function(){
 });
 </script>
 
-<div id='remote'>
-  <div id='rhead'>...</div>
-  <div class='icon' id='share'></div>
-  <div class='icon' id='cods'></div>
-  <div class='icon last' id='sets'></div>
-</div>
 
-<div id="colorm" style="display:none;">
-  <div id="cbox" style="margin-left: 143.5px; margin-top: 76.5px;">
-    <div id="close"></div>
-    <div id="mhead">
-      <span id="pubss">Publish This Page</span>
-    </div>
-    <div id="mcont">
-          <div class="jump-view jump-view-last">
-            <div id="full-page-link" href="" class="jump-label jump-label-full" target="_blank">
-              Publish >>>
-            </div>    
-            <input type="url" id="full-page-url" readonly="readonly" value="" placeholder="Publish URL will be created here">
-          </div>
-          <div id='done'>Save it.</div>
-          <button style='display:none;' class="button-primary js-signup-trigger js-track-click-event" data-event-name="homepage_splash_signup">Custome this URL</button>
-    <ol class="day-results" style="margin: 5px 0px 24px; padding: 0px; color: rgb(48, 57, 66); font-family: 'Lucida Grande', sans-serif; font-size: 12px;">
-    </ol>
-    
-    </div>
-    <div id="okbtn">Close</div>
-  </div>
-</div>
-<div id='start'>Source</div>
-<div id='clock'></div>
+
+
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js"></script>
-<script src="/scripts/cgs.js"></script> 
+<script src="/scripts/cgss.js"></script> 
 
 </body>
 </html>

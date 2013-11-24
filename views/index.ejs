@@ -8,71 +8,69 @@
 <link href="http://fonts.googleapis.com/css?family=Titillium+Web:400,700" rel="stylesheet" type="text/css">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 <link href="/styles/main.css" rel="stylesheet">
- <style>
-    #wcontent {
-      width: 100%;
-      height: 100%;
-      margin: 0 auto;
-    }
-
-    .visual {
-      padding: 430px 0px 0px;
-      margin: 0px 20px;
-      border-collapse: collapse; 
-      list-style: none; 
-      height: auto; 
-      color: rgb(255, 255, 255); 
-      font-size: 20px; 
-      text-align: center; 
-      background-image: none; 
-      position: relative; 
-      overflow: hidden;
-    }
-
-    .slide {
-      padding: 0px;
-      margin: 0px;
-      border-collapse: collapse;
-      list-style: none;
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      -webkit-transition: 0.2s;
-      transition: 0.2s;
-      width: 4700px;
-    }
-
-    .slide-item.item1 {
-      padding: 0px;
-      margin: 0px; 
-      border-collapse: collapse; 
-      list-style: none; 
-      background-image: url(http://farm6.staticflickr.com/5505/10624711695_2c87385f18_o.png); 
-      background-size: 940px 430px; 
-      float: left; 
-      width: 940px; 
-      height: 430px; 
-      text-align: right; 
-      background-position: 0px 0px; 
-      background-repeat: no-repeat no-repeat;
-    }
-
-    .slide-item.item2 {
-      padding: 0px; 
-      margin: 0px; 
-      border-collapse: collapse; 
-      list-style: none; 
-      background-image: url(http://d1c5t9xsxiurcy.cloudfront.net/_static_gen/_ui/images/business/about-discover2.c11ab07348ca.jpg); 
-      background-size: 940px 430px; 
-      float: left; 
-      width: 940px; 
-      height: 430px; 
-      text-align: left; 
-      background-position: 0px 0px; 
-      background-repeat: no-repeat no-repeat;
-    }
-
-    .slide-item.item3 {
+<style>
+  #wcontent {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+  .visual {
+    height: auto;
+    margin: 0px 20px;    
+    padding: 430px 0px 0px;
+    position: relative;
+    font-size: 20px; 
+    text-align: center;    
+    border-collapse: collapse; 
+    list-style: none; 
+    color: rgb(255, 255, 255);  
+    overflow: hidden;
+    background-image: none;
+  }
+  .slide {
+    top: 0px;
+    left: 0px;
+    width: 4700px;
+    padding: 0px;
+    margin: 0px;
+    border-collapse: collapse;
+    list-style: none;
+    position: absolute;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    -ms-transition: 0.2s;
+  }
+  .slide-item.item1 {
+    width: 940px; 
+    height: 430px; 
+    padding: 0px;
+    margin: 0px; 
+    border-collapse: collapse; 
+    list-style: none; 
+    float: left;
+    text-align: right;
+    background-image: url(http://farm6.staticflickr.com/5505/10624711695_2c87385f18_o.png); 
+    background-size: 940px 430px;  
+    background-position: 0px 0px; 
+    background-repeat: no-repeat no-repeat;
+  }
+  .slide-item.item2 {
+    width: 940px; 
+    height: 430px; 
+    padding: 0px; 
+    margin: 0px; 
+    border-collapse: collapse; 
+    list-style: none; 
+    float: left; 
+    text-align: left; 
+    background-image: url(http://d1c5t9xsxiurcy.cloudfront.net/_static_gen/_ui/images/business/about-discover2.c11ab07348ca.jpg); 
+    background-size: 940px 430px; 
+    background-position: 0px 0px; 
+    background-repeat: no-repeat no-repeat;
+  }
+  .slide-item.item3 {
       padding: 0px; 
       margin: 0px; 
       border-collapse: collapse; 
@@ -85,76 +83,69 @@
       background-position: 0px 0px; 
       background-repeat: no-repeat no-repeat;
     }
-
     .slide-item.item4 {
+      width: 940px; 
+      height: 430px; 
       padding: 0px; 
       margin: 0px; 
+      float: left;
       border-collapse: collapse; 
       list-style: none; 
       background-image: url(http://d1c5t9xsxiurcy.cloudfront.net/_static_gen/_ui/images/business/about-discover4.e2ba254cbb6b.jpg); 
-      background-size: 940px 430px; 
-      float: left; 
-      width: 940px; 
-      height: 430px; 
+      background-size: 940px 430px;  
       background-position: 0px 0px; 
       background-repeat: no-repeat no-repeat;
     }
-
     .slide-item.item5 {
+      width: 940px; 
+      height: 430px; 
       padding: 0px; 
       margin: 0px; 
+      float: left; 
+      text-align: left; 
       border-collapse: collapse; 
       list-style: none; 
       background-image: url(http://d1c5t9xsxiurcy.cloudfront.net/_static_gen/_ui/images/business/about-discover5.5cc187f3d090.jpg); 
       background-size: 940px 430px; 
-      float: left; 
-      width: 940px; 
-      height: 430px; 
-      text-align: left; 
       background-position: 0px 0px; 
       background-repeat: no-repeat no-repeat;
     }
-
     .btn-next {
+      top: 50%;
+      right: 20px; 
+      width: 48px; 
+      height: 49px; 
       padding: 0px; 
-      margin: 0px; 
+      margin: -15px 0 0 0;
       border-collapse: collapse; 
       list-style: none; 
       text-decoration: none; 
       color: rgb(77, 114, 167); 
       background-image: url(http://farm3.staticflickr.com/2889/10644048236_785cdc102d_o.png); 
       background-size: 800px 240px; 
-      position: absolute; 
-      top: 50%; 
-      width: 48px; 
-      height: 49px; 
-      opacity: 0.7; 
-      right: 20px; 
+      position: absolute;   
       background-position: -270px -180px; 
       background-repeat: no-repeat no-repeat;
-      margin-top: -15px;
+      opacity: 0.7;
     }
-
     .btn-prev {
+      top: 50%;
+      left: 20px;
+      width: 48px;
+      height: 49px;
       padding: 0px;
-      margin: 0px;
+      margin: -15px 0 0 0;
+      position: absolute;
       border-collapse: collapse;
       list-style: none;
       text-decoration: none;
       color: rgb(77, 114, 167);
       background-image: url(http://farm3.staticflickr.com/2889/10644048236_785cdc102d_o.png);
       background-size: 800px 240px;
-      position: absolute;
-      top: 50%;
-      width: 48px;
-      height: 49px;
-      opacity: 0.7;
-      left: 20px;
       background-position: -210px -180px;
       background-repeat: no-repeat no-repeat;
-      margin-top: -15px;
+      opacity: 0.7;
     }
-
     .join-text {
       padding: 0px 0px 15px; 
       margin: 0px; 
@@ -164,7 +155,6 @@
       font-size: 32px; 
       line-height: 36px;
     }
-
     #titlep {
       padding: 30px 0px 28px;
       margin: 0px;
@@ -172,15 +162,17 @@
       list-style: none;
       color: rgb(128,128,128);
     }
-
     .btn-blue.btn-join {
+      min-width: 217px; 
+      height: auto;
       padding: 0px 20px; 
       margin: 0px 0px 20px; 
+      font-size: 18px; 
+      line-height: 47px; 
       border-collapse: collapse; 
       list-style: none; 
       vertical-align: middle; 
-      background-color: rgb(35, 142, 207); 
-      cursor: pointer; 
+      background-color: rgb(35, 142, 207);  
       border: 0px; 
       color: rgb(255, 255, 255); 
       box-shadow: none; 
@@ -188,31 +180,25 @@
       border-top-right-radius: 2px; 
       border-bottom-right-radius: 2px; 
       border-bottom-left-radius: 2px; 
-      text-shadow: rgba(77, 123, 196, 0.74902) 0px 1px 1px; 
-      font-size: 18px; 
-      line-height: 47px; 
-      min-width: 217px; 
-      height: auto;
+      text-shadow: rgba(77, 123, 196, 0.74902) 0px 1px 1px;
+      cursor: pointer; 
     }
-
     #content {
-      padding: 0px 0px 40px; 
-      margin: 0px; 
-      border-collapse: collapse; 
-      list-style: none; 
-      position: relative; 
-      float: left; 
       width: 980px; 
       min-height: 427px;
+      padding: 0px 0px 40px; 
+      margin: 0px; 
+      position: relative;
+      float: left;
+      border-collapse: collapse; 
+      list-style: none;  
     }
-
     #animation{
       padding: 0px; 
       margin: 0px; 
       border-collapse: collapse;
       list-style: none;
     }
-
     #tid {
       padding: 0px 0px 20px; 
       margin: 0px; 
@@ -222,7 +208,6 @@
       font-size: 17px; 
       color: rgb(91, 137, 151);
     }
-
     #tiu {
       padding: 49px 0px 10px; 
       margin: 0px; 
@@ -232,30 +217,27 @@
       font-size: 64px; 
       color: rgb(35, 47, 53);
     }
-
     #tit1 {
+      width: 100%;
       padding: 37px 39px 10px 0px;
       margin: 0px;
       border-collapse: collapse;
       list-style: none;
       line-height: 1em;
       font-size: 64px;
-      width: 100%;
       font-family: 'Open Sans', sans-serif;
       font-weight: 700;
     }
-
     #txt2 {
+      width:100%;
       padding: 0px 42px 20px 0px; 
       margin: 0px; 
       border-collapse: collapse; 
       list-style: none; 
       line-height: 1em; 
       font-size: 17px;
-      width:100%;
       font-family: 'Open Sans', sans-serif;
     }
-
     .business-support {
       padding: 20px 0px 20px;
       margin: 0px 20px;
@@ -264,18 +246,18 @@
       clear: both;
       background-image: none;
     }
-
     .bsul {
+      width: 100%;
+      height: 345px;
       padding: 0px;
       margin: 0px auto;
       border-collapse: collapse;
       list-style: none;
       box-shadow: none;
-      width: 100%;
-      height: 345px;
     }
-
     .bsli {
+      width: 50%;
+      height: 100%;
       padding: 58px 0px 0px;
       margin: 0px;
       border-collapse: collapse;
@@ -285,11 +267,7 @@
       line-height: 26px;
       color: rgb(128, 128, 128);
       text-align: center;
-      width: 50%;
-      height: 100%;
     }
-
-
     .span1 {
       padding: 0px 0px 2px;
       margin: 0px;
@@ -299,7 +277,6 @@
       font-size: 30px;
       display: block;
     }
-
     .go-help {
       padding: 0px 0px 0px;
       margin: 0px;
@@ -311,40 +288,35 @@
       font-size: 15px;
       font-weight: bold;
     }
-
     .inbox {
       width: 100%;
       height: 180px;
+      overflow: hidden;
     }
-
     #inb2 {
       padding: 10px 10px 10px 23px;
     }
-
     #inb1 {
       padding: 10px 10px 10px 23px;
     }
-
     #skill {
+      width: 100%;
+      height: 100%;
       margin: 2px auto -2px;
       outline: 0px;
       vertical-align: baseline;
-      width: 100%;
-      height: 100%;
     }
-
     .skilli {
       margin: 0px 13px 13px 0px;
       padding: 0px;
+      position: relative;
       border: 0px;
+      float: left;
+      text-align: center;
       outline: 0px;
       vertical-align: baseline;
       background-color: transparent;
-      float: left;
-      position: relative;
-      text-align: center;
     }
-
     .skillimg {
       margin: 0px;
       padding: 0px;
@@ -354,8 +326,8 @@
       background-color: transparent;
       display: block;
     }
-
     #skillul {
+      width: 248px;
       margin: 20px auto;
       padding: 0px;
       border: 0px;
@@ -363,19 +335,24 @@
       vertical-align: baseline;
       background-color: transparent;
       list-style: none;
-      width: 248px;
     }
-
     .skillul2 {
       margin: 46px auto !important;
     }
-
+    .skill3, .skill4, .skill5 {
+      width: 100%;
+      height: 100%;
+      margin: 0px auto 0px;
+      outline: 0px;
+      vertical-align: baseline;
+      line-height: 50px;
+    }
     @media (max-width: 43.75em){
       .inbox {
         height: 153px;
       }
-
       #skillul {
+        width: 248px;
         margin: 10px auto;
         padding: 0px;
         border: 0px;
@@ -383,28 +360,25 @@
         vertical-align: baseline;
         background-color: transparent;
         list-style: none;
-        width: 248px;
       }
-
       .skillul2{
         margin: 40px auto !important;
       }
     }
-  </style>
+</style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="/scripts/detect.js"></script>
-<script src="/scripts/fittext.js"></script>
 <script src='/scripts/outclick.js'></script>
 <script src="/scripts/main.js"></script>
+<script src="/scripts/fittext.js" async></script>
 <script src="/scripts/theme.js" async></script>
 <script src="/scripts/slide.js" async></script>
+<script src="/scripts/col.js" async></script>
 </head>
-
-<body>
-  
+<body>  
   <header id="header">
     <div id="logo">      
-      <a href="http://wkc.azurewebsites.net" style="text-decolation:none;"><h1 id="logoh1">www.koheishingai.com</h1></a>      
+      <a href="http://www.koheishingai.com" style="text-decolation:none;"><h1 id="logoh1">www.koheishingai.com</h1></a>      
       <ul id="logoul">
         <li id="search">
           <div id="swrap">
@@ -413,7 +387,7 @@
         </li>
         <li style="width:114px;"><a href="/article"  id="article">Article</a></li>
         <li id="collectionli" id="collectionli" style="width:75px;"><a href="/collections"  id="collection">Collections</a></li>
-        <li style="width:111px;"><a href="/works" style=""  id="works">Works</a></li>
+        <li style="width:111px;"><a href="/works" id="works">Works</a></li>
         <li style="width:67px;"><a href="/about"  id="about">About</a></li>
       </ul>
       <div id="topmenu"></div>
@@ -431,30 +405,30 @@
               <p id="txt2" class="txt">I am Web Developer.</p>
             </div>
 
-            <div class="slide-item item2">
+            <div class="slide-item item2" style="display:none;">
               <p class="tit" style="padding: 165px 0px 10px 101px; margin: 0px; border-collapse: collapse; list-style: none; line-height: 1em; font-size: 64px;">Buy with Fancy</p>
               <p class="txt" style="padding: 0px 0px 20px 104px; margin: 0px; border-collapse: collapse; list-style: none; line-height: 1em; font-size: 17px; color: rgb(255, 199, 0);">ONE STORE. THOUSANDS OF THINGS.</p>
             </div>
             
-            <div class="slide-item item3">
+            <div class="slide-item item3" style="display:none;">
               <p class="tit" style="padding: 49px 0px 10px; margin: 0px; border-collapse: collapse; list-style: none; line-height: 1em; font-size: 64px;">Fancy Gifts</p>
               <p class="txt" style="padding: 0px 0px 20px; margin: 0px; border-collapse: collapse; list-style: none; line-height: 1em; font-size: 17px; color: rgb(124, 18, 21);">GIFT CARDS · GROUP GIFTS · FANCY BOX</p>
             </div>
 
-            <div class="slide-item item4">
+            <div class="slide-item item4" style="display:none;">
               <p id="tiu" class="tit">Find &amp; Collect</p>
               <p id="tid" class="txt">BUILD YOUR COLLECTION. EXPRESS YOUR STYLE.</p>
             </div>
             
-            <div class="slide-item item5">
+            <div class="slide-item item5" style="display:none;">
               <p class="tit" style="padding: 165px 0px 10px 101px; margin: 0px; border-collapse: collapse; list-style: none; line-height: 1em; font-size: 64px;">Earn Credits</p>
               <p class="txt" style="padding: 0px 0px 20px 106px; margin: 0px; border-collapse: collapse; list-style: none; line-height: 1em; font-size: 17px; color: rgb(66, 200, 191);">INVITE YOUR FRIENDS. GET REWARDED.</p>
             </div>
 
           </div>
 
-        <a href="http://fancy.com/about#" class="btn-next"></a>
-        <a href="http://fancy.com/about#" class="btn-prev"></a>
+        <a href="http://fancy.com/about#" class="btn-next" style="display:none;"></a>
+        <a href="http://fancy.com/about#" class="btn-prev" style="display:none;"></a>
       </div>
     </div>
 
@@ -490,7 +464,7 @@
         <li class='bsli' style="border-left: 1px solid rgb(223, 223, 223);">
           <span id="wcij" class="span1">Join as a Business</span>
           <div class="inbox" id="inb2">
-            <section id="skill">
+            <section id="skill" class='skill2'>
               <ul id="skillul" class="skillul2">
                 <li class="skilli"><img class="skillimg" src="http://farm4.staticflickr.com/3757/10748437694_0270cb50d9_o.png" alt="HTML5" width="49" height="49"></li>
                 <li class="skilli"><img class="skillimg" src="http://farm4.staticflickr.com/3707/10748371925_9d2c15b08b_o.png" alt="CSS" width="49" height="49"></li>
@@ -499,7 +473,7 @@
               </ul>
             </section>
           </div>
-          <a href="http://fancy.com/help" class="go-help">Join</a>
+          <a href="/about" class="go-help">Detail</a>
         </li>
       
       </ul>
@@ -519,7 +493,6 @@
       <li id="mail">Mail</li>
     </ul>
   </footer>
-
   
   <div id="remote">
     <div id="rhead">...</div>
@@ -548,6 +521,24 @@
           <div class="themes" id="dayt">Day Dream</div>
         </div>
       </div>
+      <div id="theme3" class="outmc">
+        <div class="outmcin">
+          <div class="themes" id="stra">Strawberry</div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div id="okbtn">OK</div>
+  </div>
+</div>
+
+  <div id="colorm2">
+    <div id="cbox">
+      <div id="close"></div>
+      <div id="mhead">
+        <span id="mmti">Sync with Mobile</span>
+      </div>
+      <div id="mcont">
     </div>
   </div>
     <div id="okbtn">OK</div>
@@ -563,7 +554,6 @@
     <div class="msktxts" id="colormsk"></div>
   </div>
 </div>
-
 <script>
   $(function(){
     if($("window").innerWidth() > 700){
@@ -574,15 +564,10 @@
     }
   });
 </script>
-
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js"></script>
 <script>
   $(function(){
-    //socket section
-    var socket = io.connect('http://localhost:8081');
-    socket.on('examples', function (data) {
-      //alert(data);
-    });
+    var socket = io.connect('http://www.koheishingai.com:8080');
   });
 </script>
 </body>

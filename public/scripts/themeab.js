@@ -50,7 +50,6 @@ $(function(){
   
 $('#close').click(function(){
 
-    $('body').css('overflow-y', 'auto');
 
     $('#colorm').hide();
 
@@ -58,7 +57,6 @@ $('#close').click(function(){
     thestrage();
   });
   $('#okbtn').click(function(){
-    $('body').css('overflow-y', 'auto');
 
     $('#colorm').hide();
 
