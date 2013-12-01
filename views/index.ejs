@@ -347,6 +347,40 @@
       vertical-align: baseline;
       line-height: 50px;
     }
+    .anim{
+    opacity:0;
+    -webkit-animation: op 0.7s ease 1;
+    -moz-animation: op 0.7s ease 1;
+    -o-animation: spin 0.7s ease 1;
+    -ms-animation: spin 0.7s ease 1;
+    animation: spin 0.7s ease 1;
+    }
+    @-webkit-keyframes op{
+      from {opacity:0;}
+      to {opacity:1;}
+    }
+    @-moz-keyframes op{
+      from {opacity:0;}
+      to {opacity:1;}
+    }
+    @-o-keyframes op{
+      from {opacity:0;}
+      to {opacity:1;}
+    }
+    @-ms-keyframes op{
+      from {opacity:0;}
+      to {opacity:1;}
+    }
+    @keyframes op{
+      from {opacity:0;}
+      to {opacity:1;}    
+    }
+    @media (max-width: 1151px){
+      #ral{
+        font-size:24px !important;
+      }    
+    }
+
     @media (max-width: 43.75em){
       .inbox {
         height: 153px;
@@ -374,6 +408,10 @@
 <script src="/scripts/theme.js" async></script>
 <script src="/scripts/slide.js" async></script>
 <script src="/scripts/col.js" async></script>
+<!--[if lt IE 7 ]><link href="./styles/ie.css" rel="stylesheet" type="text/css"><![endif]-->
+<!--[if IE 7 ]><link href="./styles/ie.css" rel="stylesheet" type="text/css"><![endif]-->
+<!--[if IE 8 ]><link href="./styles/ie.css" rel="stylesheet" type="text/css"><![endif]-->
+<!--[if IE 9 ]><link href="./styles/ie.css" rel="stylesheet" type="text/css"><![endif]-->
 </head>
 <body>  
   <header id="header">

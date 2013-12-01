@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeGarage - StickUp</title>
+<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Oxygen+Mono' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://lirancohen.github.io/stickUp/js/stickUp.min.js"></script>
+<style>
+
+*, *:after, *:before {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+list-style: none;
+-webkit-font-smoothing: antialiased;
+}
+
+body{
+margin:0px;
+overflow-x:hidden;
+overflow-y:auto;
+font-family: 'Open Sans', sans-serif;
+}
+
+.main {
+height: 100%;
+}
+
+pre{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+  white-space: pre-wrap;      
+  white-space: -moz-pre-wrap;  
+  white-space: -pre-wrap;      
+  white-space: -o-pre-wrap;   
+  word-wrap: break-word;      
+}
+
+#toolBar2{
+  background: #777777;
+  padding-left: 5px;
+  margin-top: 0;
+}
+
+#thisForm{
+  margin:0px;
+  display:block;
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+  border-radius:4px;
+  border: 0;
+}
+
+.intLink{
+  cursor:pointer;
+  color: #ecf0f1;
+  text-decoration:none;
+  margin:6px 2px;
+  padding:2px 5px;
+  display:inline-block;
+  outline:none;
+}
+
+#toolBar2 select{
+  font-size:13px;
+  font-weight:bold;
+  border: 0;
+  width:22px;
+  height:30px;
+  color: #000000;
+  background:#FFF;
+  margin-top:2px;
+}
+#textBox {
+background:none;
+min-height: 200px;
+border: 0;
+padding: 3px;
+overflow: auto;
+border-top: 2px solid #BDC3C7;
+border-left: 0;
+border-right: 0;
+color: rgb(134, 134, 134);
+font-size: 21px;
+font-family: 'Oxygen Mono', sans-serif;
+margin:0px;
+padding:0px;
+}
+#textBox:focus{
+  border-top: 2px solid #5FD3F7;
+  border-left: 0;
+  border-right: 0;
+  outline: none;
+}
+#textBox #sourceText{
+  margin: 0;
+  padding: 5px;
+  background: none;
+  color: #4B4B4B;
+}
+#editMode{
+  background:#E74C3C;
+  padding:5px 10px;
+  display:inline-block;
+  color:#ECF0F1;
+}
+#editMode label{
+  cursor:pointer;
+}
+input[type=checkbox]{
+  display:none;
+  outline:none;
+}
+input[type=checkbox]:checked + label{
+  background:#575757;
+  color:#FCFDFF;
+  text-shadow:0 1px 1px #303030;
+}
+input[type=checkbox]:checked + label .handle{
+  margin-left:45px;
+}
+label.custom-select{
+  position:relative;
+  display:inline-block;
+}
+.custom-select select{
+  display:inline-block;
+  padding:4px 3px 3px 5px;
+  margin:0;
+  font:inherit;
+  outline:none;
+  line-height:1.2;
+  -webkit-appearance:none;
+  -webkit-border-radius:4px;
+  -moz-border-radius:4px;
+  border-radius:4px;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0){
+  .custom-select select {
+    padding-right:10px;
+  }
+}
+
+
+.custom-select:after{
+  font-family:FontAwesome;
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  font-size:14px;
+  line-height:30px;
+  padding:0 7px;
+  background: #777777;
+  height:30px;
+  margin-right:0;
+  margin-top:2px;
+  color: #ecf0f1;
+  pointer-events:none;
+}
+
+
+.fonthd:after{ content: "\f040";}
+.fontFam:after{ content:"\f034";}
+.fontSi:after{ content:"\f035";}
+.fontCol:after{content:"\f031";}
+.fontBck:after{ content:"\f043";}
+
+
+.fonthd:hover:after,.fontFam:hover:after,
+.fontSi:hover:after,.fontCol:hover:after,
+.fontBck:hover:after,.send-btn:hover,
+.intLink:hover{
+  color:#1AC0F5;
+  cursor: pointer; 
+  -webkit-transition:background 1s ease;
+  -moz-transition:background 1s ease;
+  -o-transition:background 1s ease;
+  transition:background 1s ease;
+}
+
+.no-pointer-events .custom-select:after{
+  content:none;
+}
+
+
+
+#editor_panel {
+top: -32px;
+position: absolute;
+width: 100%;
+}
+
+.intLink {
+display: none;
+}
+
+
+#remote {
+margin: 0;
+position: fixed;
+z-index: 1;
+background-color: #FFFFFF;
+box-shadow: 0 2px 4px rgba(116, 116, 116, 0.5);
+border: 1px solid #AAA;
+padding: 0;
+bottom: 119px;
+right: 5px;
+border-radius: 0px;
+height: 158px;
+width: 46px;
+}
+
+#rhead {
+margin: 0px;
+padding: 0px;
+height: 15px;
+text-align: center;
+FIXME: disabling dock movement for now, cursor would be misleading:;
+-moz-user-select: none;
+-webkit-user-select: none;
+-ms-user-select: none;
+user-select: none;
+width: 100%;
+position: relative;
+left: 0px;
+border-bottom: 1px solid rgb(162, 162, 162);
+line-height: 4px;
+font-weight: 900;
+font-size: 20px;
+letter-spacing: 2px;
+text-align: center;
+color: #696969;
+font-family: arial;
+cursor:default;
+}
+
+.icon {
+cursor: pointer;
+height: 47px;
+border-bottom: 1px solid lightGrey;
+}
+.last{
+  border-bottom:none;
+}
+
+#share::before {
+font-family: "FontAwesome";
+content: "\f064";
+margin-left: 9px;
+font-size: 32px;
+line-height: 48px;
+color: rgb(116, 116, 116);
+}
+
+#cods::before {
+font-family: "FontAwesome";
+content: "\f121";
+margin-left: 8px;
+font-size: 29px;
+line-height: 47px;
+color: rgb(116, 116, 116);
+}
+
+#sets::before {
+font-family: "FontAwesome";
+content: "\f013";
+margin-left: 9px;
+font-size: 33px;
+line-height: 49px;
+color: rgb(116, 116, 116);
+}
+
+.icon:hover{
+  background:#e4e4e4 !important;
+}
+
+#colorm {
+background: rgba(255, 255, 255, 0.68);
+left: 0;
+position: absolute;
+top: 0;
+z-index: 1000;
+filter: alpha(opacity=75);
+-moz-opacity: .75;
+opacity: 1;
+display: none;
+height: 100%;
+width: 100%;
+overflow: hidden;
+}
+
+#cbox{
+-webkit-box-shadow: 0 4px 16px rgba(0,0,0,.2);
+-moz-box-shadow: 0 4px 16px rgba(0,0,0,.2);
+box-shadow: 0 4px 16px rgba(0,0,0,.2);
+background: #fff;
+background-clip: padding-box;
+border: 1px solid #acacac;
+border: 1px solid rgba(0,0,0,.333);
+outline: 0;
+position: absolute;  
+color: #000;
+padding: 30px 27px;
+z-index: 1001;
+width:80%;
+height:80%;
+overflow:hidden;
+}
+
+#close{
+height: 11px;
+opacity: 0.7;
+padding: 17px;
+position: absolute;
+right: 0px;
+top: 0px;
+width: 11px;
+cursor:pointer;
+}
+
+#close::before{
+content: '';
+background: url(http://ssl.gstatic.com/ui/v1/dialog/close-x.png);
+position: absolute;
+height: 11px;
+width: 11px;
+right: 17px;
+}
+
+#mhead{
+background-color: #fff;
+color: #000;
+cursor: default;
+font-size: 16px;
+font-weight: normal;
+line-height: 24px;
+margin: 0 0 16px;
+}
+
+#mcont {
+border: 1px solid #ebebeb;
+height: 85%;
+overflow-x: hidden;
+overflow-y: auto;
+padding: 0;
+position: relative;
+width: 100%;
+margin: 0 auto;
+text-align: center;
+}
+#mconth{
+border-bottom: 1px solid #f2f2f2;
+height: 14px;
+position: absolute;
+width: 100%;
+}
+
+#mcontt {
+background: #fff;
+color: #999;
+display: inline-block;
+font-size: 11px;
+font-weight: bold;
+padding: 9px 10px 2px 10px;
+position: relative;
+text-transform: uppercase;
+}
+
+#underc{
+border-bottom: 1px solid #ebebeb;
+margin: 0;
+padding: 14px 0;
+}
+
+#okbtn {
+-webkit-writing-mode: horizontal-tb;
+font: -webkit-small-control;
+letter-spacing: normal;
+word-spacing: normal;
+text-transform: none;
+text-indent: 0px;
+text-shadow: none;
+display: inline-block;
+align-items: flex-start;
+text-align: center;
+border-image-source: initial;
+border-image-slice: initial;
+border-image-width: initial;
+border-image-outset: initial;
+border-image-repeat: initial;
+box-sizing: border-box;
+-webkit-border-radius: 2px;
+-moz-border-radius: 2px;
+border-radius: 2px;
+background-image: -moz-linear-gradient(top,#f5f5f5,#f1f1f1);
+background-image: -ms-linear-gradient(top,#f5f5f5,#f1f1f1);
+background-image: -o-linear-gradient(top,#f5f5f5,#f1f1f1);
+cursor: pointer;
+font-size: 11px;
+font-weight: bold;
+height: 29px;
+line-height: 27px;
+margin: 0 16px 0 0;
+min-width: 72px;
+outline: 0;
+padding: 0 8px;
+background-color: #FFFFFF;
+background-image: -webkit-linear-gradient(top,#979797,#777777);
+background-image: -moz-linear-gradient(top,#4d90fe,#4787ed);
+background-image: -ms-linear-gradient(top,#4d90fe,#4787ed);
+background-image: -o-linear-gradient(top,#4d90fe,#4787ed);
+background-image: linear-gradient(top,#4d90fe,#4787ed);
+border: 1px solid #8A8A8A;
+color: #fff;
+margin-top: 10px;
+}
+
+
+.outmc{
+position: relative;
+display: -moz-inline-box;
+display: inline-block;
+background-repeat: no-repeat;
+border: 1px solid #fff;
+cursor: pointer;
+margin: 10px;
+outline: 2px solid #ddd;
+position: relative;
+vertical-align: top;  
+-webkit-user-select: none;
+}
+
+.onm{
+  outline: 2px solid #0096fd !important;
+}
+
+.outmcin{
+width: 152px;
+height: 114px;
+-webkit-user-select: none;
+display: block;
+}
+
+#wrapomc{
+  width:100%;
+  height:100%;
+}
+
+.themes {
+width: 100%;
+height: 100%;
+padding: 0px;
+text-align: center;
+line-height: 113px;
+font-size: 16px;
+}
+
+#defgre{
+color: rgb(70, 70, 70);
+background: rgb(245, 231, 231);  
+font-family: 'Titillium Web', sans-serif;
+}
+
+#dayt{
+color: #FFAE03;
+background: #fcd04b;    
+font-family: 'Oxygen', sans-serif;
+}
+
+#start {
+background: rgba(255, 235, 0, 1);
+color: rgba(255, 255, 255, 0.93);
+text-align: center;
+line-height: 150px;
+position: absolute;
+width: 150px;
+height: 150px;
+margin-top: -75px;
+margin-left: -75px;
+font-size: 30px;
+font-weight: 900;
+top: 50%;
+left: 50%;
+z-index: 1000;
+background-size: 150px 150px;
+opacity: 0;
+cursor: pointer;
+-webkit-transition: all 0.118s,visibility 0s;
+-moz-transition: all 0.118s,visibility 0s;
+-ms-transition: all 0.118s,visibility 0s;
+-o-transition: all 0.118s,visibility 0s;
+transition: all 0.118s,visibility 0s;
+box-shadow: 0px 1px 4px rgba(88, 88, 88, 0.4);
+}
+
+
+
+#full-page-link {
+margin: 0px;
+padding: 0px 0px 0px 10px;
+text-decoration: none;
+color: white;
+display: block;
+float: left;
+width: 104px;
+-webkit-transition: box-shadow 0.1s ease;
+transition: box-shadow 0.1s ease;
+border-top-left-radius: 6px;
+border-bottom-left-radius: 6px;
+height: 40px;
+line-height: 40px;
+font-size: 15px;
+font-weight: 900;
+position: relative;
+border-right-width: 1px;
+border-right-style: solid;
+border-right-color: rgba(255, 255, 255, 0.0470588);
+background-color: rgb(28, 89, 219);
+cursor: pointer;
+}
+
+
+
+.jump-view.jump-view-last {
+margin: 80px auto;
+opacity: 1;
+width: 550px;
+}
+#pubs {
+  margin: 0px;  padding: 0px;  position: absolute;  left: 5px;  top: 4px;  background-color: rgba(0, 0, 0, 0.2);  width: 20px;  height: 20px;  border-top-left-radius: 4px;  border-top-right-radius: 4px;  border-bottom-right-radius: 4px;  border-bottom-left-radius: 4px;  line-height: 23px;  text-align: center;  box-shadow: rgba(255, 255, 255, 0.2) 0px 1px 0px, rgba(0, 0, 0, 0.2) 0px 1px 0px inset;
+}
+#pubsin {
+  margin: 0px; padding: 0px;
+}
+#full-page-url {
+margin: 0px;
+padding: 4px 20px 4px 10px;
+border-width: 0px;
+-webkit-appearance: none;
+background-image: linear-gradient(rgb(204, 204, 204), rgb(255, 255, 255));
+outline: 0px;
+box-shadow: rgb(0, 0, 0) 10px 0px 20px -10px inset;
+width: 446px;
+overflow: hidden;
+font-size: 13px;
+height: 40px;
+border-top-right-radius: 6px;
+border-bottom-right-radius: 6px;
+}
+
+.button-primary.js-signup-trigger.js-track-click-event {
+border: 1px solid rgb(143, 68, 68);
+margin: 0px auto;
+padding: 11px 20px 12px;
+outline: 0px;
+cursor: pointer;
+color: rgb(255, 255, 255);
+font-size: 17px;
+line-height: 17px;
+border-top-left-radius: 4px;
+border-top-right-radius: 4px;
+border-bottom-right-radius: 4px;
+border-bottom-left-radius: 4px;
+-webkit-transition: all 0.05s ease-in-out;
+transition: all 0.05s ease-in-out;
+text-shadow: rgba(0, 0, 0, 0.14902) 0px -1px 0px;
+-webkit-box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 1px;
+box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 1px;
+background-image: -webkit-linear-gradient(top, rgb(175, 0, 0), rgb(124, 9, 9));
+}
+
+.window_label {
+border: solid 1px #F1F1F1;
+background: #fff;
+display: none;
+height: 22px;
+padding: 0 6px;
+line-height: 19px;
+position: absolute;
+top: 6px;
+right: 3px;
+text-align: center;
+font-size: 17px;
+color: #636363;
+border-radius: 1px;
+z-index: 30;
+cursor: pointer;
+opacity: 0.8;
+}
+
+#clock {
+cursor: pointer;
+position: fixed;
+bottom: 0px;
+}
+
+#clock::before {
+font-family: "FontAwesome";
+content: "\f017";
+margin-left: 7px;
+font-size: 33px;
+line-height: 40px;
+position: absolute;
+bottom: 0px;
+cursor: pointer;
+color: rgb(211, 211, 211);
+}
+
+#done{
+color: rgb(175, 175, 175);
+font-size: 29px;
+display:none;
+}
+
+
+.entry{
+  margin:0px;
+  padding:0px;
+}
+
+.entry-box-container{
+  display: -webkit-flex;
+}
+
+.entry-box{
+  align-items: center; 
+  display: -webkit-flex; 
+  line-height: 1.75em; 
+  margin-bottom: 6px; 
+  max-width: 100%; 
+  overflow: hidden; 
+  padding-bottom: 1px;
+}
+
+.visit-entry{
+  display: -webkit-flex; 
+  min-width: 0px; 
+  -webkit-padding-start: 9px; 
+  background-size: 16px; 
+  font-size: 18px;
+}
+
+.title{
+  min-width: 0px; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  white-space: nowrap;
+}
+.title a{
+  color: rgb(48, 57, 66); 
+  text-decoration: none;
+}
+
+@media (max-width: 43.75em){
+  #remote {
+    width: 100%;
+    right: 0px;
+    height: 47px; 
+    bottom:0px;
+    border-top: 1px solid #D3D3D3;
+    box-shadow: 0 -1px 4px rgba(116, 116, 116, 0.24);
+    border-radius:0px;
+  }
+  .icon {
+    width: 33.33%;
+    float: left;
+    text-align: center;
+    border-right: 1px solid #d3d3d3;
+  }
+  #rhead {
+    display: none;
+  }
+  #cods::before {
+    margin-left: 0px !important;
+  }
+  #sets::before {
+    margin-left: 0px !important;
+  }
+  #share::before {
+    margin-left: 0px !important;
+  }
+  #clock::before {
+    margin-bottom: 48px;
+  }
+}
+</style>
+<!--[if lt IE 7 ]><link href="./styles/ie.css" rel="stylesheet" type="text/css"><![endif]-->
+<!--[if IE 7 ]><link href="./styles/ie.css" rel="stylesheet" type="text/css"><![endif]-->
+<!--[if IE 8 ]><link href="./styles/ie.css" rel="stylesheet" type="text/css"><![endif]-->
+<!--[if IE 9 ]><link href="./styles/ie.css" rel="stylesheet" type="text/css"><![endif]-->
+</head>
+<body>
+<span class="window_label">Run</span>
+<div class="main">
+  <!--- call editor -->
+  <div id="editor_panel"></div>  
+  <textarea id="editor_area"></textarea>
+
+</div>
+<script>
+
+monitor = 1;
+oneflg = 0;
+elem = '';
+/**
+ *  Plugin name:SWEDitor
+ *  Author: Moncho Varela / nakome
+ *  Date: 20/10/2013 ten day for my birthday LOL
+ *  @nakome on twitter
+ */
+(function(window) {
+
+
+  
+  'use strict';
+  
+  
+  function getTemplate(el) {
+    // Template html
+    var html = '<div class="box-editor">' +
+        '<div id="thisForm">' +
+        '<input type="hidden" name="myDoc">' +
+        '<div id="toolBar2">' +
+        '<label class="custom-select fonthd">' +
+        '<select class="selectThis" data-chg="formatblock">' +
+        '<option selected>:: Formatting </option>' +
+        '<option value="h1">Header &lt;h1&gt;</option>' +
+        '<option value="h2">Header &lt;h2&gt;</option>' +
+        '<option value="h3">Header &lt;h3&gt;</option>' +
+        '<option value="h4">Header &lt;h4&gt;</option>' +
+        '<option value="h5">Header &lt;h5&gt;</option>' +
+        '<option value="h6">Header &lt;h6&gt;</option>' +
+        '<option value="p">Paragraph <p></option>' +
+        '<option value="pre">Preformatted <pre></option>' +
+        '</select>' +
+        '</label>' +
+        '<label class="custom-select fontFam">' +
+        '<select class="selectThis" data-chg="fontname">' +
+        '<option class="heading" selected>:: Font</option>' +
+        '<option value=\' Arial, "Helvetica Neue", Helvetica, sans-serif\'>Arial</option>' +
+        '<option value=\' "Arial Black", "Arial Bold", Gadget, sans-serif\'>Arial Black</option>' +
+        '<option value=\' "Arial Narrow", Arial, sans-serif\'>Arial Narrow</option>' +
+        '<option value=\' "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif\'>Arial Rounded MT Bold</option>' +
+        '<option value=\' "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif\'>Avant Garde</option>' +
+        '<option value=\' Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif\'>Calibri</option>' +
+        '<option value=\' Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif\'>Candara</option>' +
+        '<option value=\' "Century Gothic", CenturyGothic, AppleGothic, sans-serif\'>Century Gothic</option>' +
+        '<option value=\' "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif\'>Franklin Gothic Medium</option>' +
+        '<option value=\' Futura, "Trebuchet MS", Arial, sans-serif\'>Futura</option>' +
+        '<option value=\' Geneva, Tahoma, Verdana, sans-serif\'>Geneva</option>' +
+        '<option value=\' "Gill Sans", "Gill Sans MT", Calibri, sans-serif\'>Gill Sans</option>' +
+        '<option value=\' "Helvetica Neue", Helvetica, Arial, sans-serif\'>Helvetica Neue</option>' +
+        '<option value=\' Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans serif\'>Impact</option>' +
+        '<option value=\' "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif\'>Lucida Grande</option>' +
+        '<option value=\' Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif\'>Optima</option>' +
+        '<option value=\' "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif\'>Segoe UI</option>' +
+        '<option value=\' Tahoma, Verdana, Segoe, sans-serif\'>Tahoma</option>' +
+        '<option value=\' "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif\'>Trebuchet MS</option>' +
+        '<option value=\' Verdana, Geneva, sans-serif\'>Verdana</option>' +
+        '<option value=\' Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif\'>Baskerville</option>' +
+        '<option value=\' "Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif\'>Bodoni MT</option>' +
+        '<option value=\' "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif\'>Book Antiqua</option>' +
+        '<option value=\' "Calisto MT", "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif\'>Calisto MT</option>' +
+        '<option value=\' Cambria, Georgia, serif\'>Cambria</option>' +
+        '<option value=\' Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif\'>Didot</option>' +
+        '<option value=\' Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif\'>Garamond</option>' +
+        '<option value=\' Georgia, Times, "Times New Roman", serif\'>Georgia</option>' +
+        '<option value=\' "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif\'>Goudy Old Style</option>' +
+        '<option value=\' "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif\'>Hoefler Text</option>' +
+        '<option value=\' "Lucida Bright", Georgia, serif\'>Lucida Bright</option>' +
+        '<option value=\' Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif\'>Palatino</option>' +
+        '<option value=\' Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif\'>Perpetua</option>' +
+        '<option value=\' Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif\'>Rockwell</option>' +
+        '<option value=\' "Rockwell Extra Bold", "Rockwell Bold", monospace\'>Rockwell Extra Bold</option>' +
+        '<option value=\' TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif\'>TimesNewRoman</option>' +
+        '<option value=\' "Andale Mono", AndaleMono, monospace\'>Andale Mono</option>' +
+        '<option value=\' Consolas, monaco, monospace\'>Consolas</option>' +
+        '<option value=\' "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace\'>Courier New</option>' +
+        '<option value=\' "Lucida Console", "Lucida Sans Typewriter", Monaco, "Bitstream Vera Sans Mono", monospace\'>Lucida Console</option>' +
+        '<option value=\' "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace\'>Lucida Sans Typewriter</option>' +
+        '<option value=\' Monaco, Consolas, "Lucida Console", monospace\'>Monaco</option>' +
+        '<option value=\' Copperplate, "Copperplate Gothic Light", fantasy\'>Copperplate</option>' +
+        '<option value=\' Papyrus, fantasy\'>Papyrus</option>' +
+        '<option value=\' "Brush Script MT", cursive\'>Brush Script MT</option>  ' +
+        '</select></label>' +
+        '<label class="custom-select fontSi">' +
+        '<select class="selectThis" data-chg="fontsize">' +
+        '<option class="heading" selected>:: Size</option>' +
+        '<option value="1">Very small</option>' +
+        '<option value="2">A bit small</option>' +
+        '<option value="3">Normal</option>' +
+        '<option value="4">Medium-large</option>' +
+        '<option value="5">Big</option>' +
+        '<option value="6">Very big</option>' +
+        '<option value="7">Maximum</option>' +
+        '</select>' +
+        '</label>' +
+        '<label class="custom-select fontCol">' +
+        '<select class="selectThis" data-chg="forecolor">' +
+        '<option class="heading" selected>:: Color</option>' +
+        '<option value="#1abc9c" style="background:#1abc9c;"> turquoise</option>' +
+        '<option value="#16a085" style="background:#16a085;"> greensea</option>' +
+        '<option value="#2ecc71" style="background:#2ecc71;"> emerald</option>' +
+        '<option value="#27ae60" style="background:#27ae60;"> nephritis</option>' +
+        '<option value="#3498db" style="background:#3498db;"> peterriver</option>' +
+        '<option value="#2980b9" style="background:#2980b9;"> belizehole</option>' +
+        '<option value="#9b59b6" style="background:#9b59b6;"> amethyst</option>' +
+        '<option value="#8e44ad" style="background:#8e44ad;"> westeria</option>' +
+        '<option value="#34495e" style="background:#34495e;"> wetasphalt</option>' +
+        '<option value="#2c3e50" style="background:#2c3e50;"> midnightblue</option>' +
+        '<option value="#f1c40f" style="background:#f1c40f;"> sunflower</option>' +
+        '<option value="#f39c12" style="background:#f39c12;"> orange</option>' +
+        '<option value="#e67e22" style="background:#e67e22;"> carrot</option>' +
+        '<option value="#d35400" style="background:#d35400;"> pumpkin</option>' +
+        '<option value="#e74c3c" style="background:#e74c3c;"> alizarin</option>' +
+        '<option value="#c0392b" style="background:#c0392b;"> pomegranate</option>' +
+        '<option value="#ecf0f1" style="background:#ecf0f1;"> clouds</option>' +
+        '<option value="#bdc3c7" style="background:#bdc3c7;"> silver</option>' +
+        '<option value="#95a5a6" style="background:#95a5a6;"> concrete</option>' +
+        '<option value="#7f8c8d" style="background:#7f8c8d;"> abestos</option>' +
+        '</select>' +
+        '</label>' +
+        '<label class="custom-select fontBck">' +
+        '<select class="selectThis" data-chg="backcolor">' +
+        '<option class="heading" selected>:: Background </option>' +
+        '<option value="#1abc9c" style="background:#1abc9c;"> turquoise</option>' +
+        '<option value="#16a085" style="background:#16a085;"> greensea</option>' +
+        '<option value="#2ecc71" style="background:#2ecc71;"> emerald</option>' +
+        '<option value="#27ae60" style="background:#27ae60;"> nephritis</option>' +
+        '<option value="#3498db" style="background:#3498db;"> peterriver</option>' +
+        '<option value="#2980b9" style="background:#2980b9;"> belizehole</option>' +
+        '<option value="#9b59b6" style="background:#9b59b6;"> amethyst</option>' +
+        '<option value="#8e44ad" style="background:#8e44ad;"> westeria</option>' +
+        '<option value="#34495e" style="background:#34495e;"> wetasphalt</option>' +
+        '<option value="#2c3e50" style="background:#2c3e50;"> midnightblue</option>' +
+        '<option value="#f1c40f" style="background:#f1c40f;"> sunflower</option>' +
+        '<option value="#f39c12" style="background:#f39c12;"> orange</option>' +
+        '<option value="#e67e22" style="background:#e67e22;"> carrot</option>' +
+        '<option value="#d35400" style="background:#d35400;"> pumpkin</option>' +
+        '<option value="#e74c3c" style="background:#e74c3c;"> alizarin</option>' +
+        '<option value="#c0392b" style="background:#c0392b;"> pomegranate</option>' +
+        '<option value="#ecf0f1" style="background:#ecf0f1;"> clouds</option>' +
+        '<option value="#bdc3c7" style="background:#bdc3c7;"> silver</option>' +
+        '<option value="#95a5a6" style="background:#95a5a6;"> concrete</option>' +
+        '<option value="#7f8c8d" style="background:#7f8c8d;"> abestos</option>' +
+        '</select>' +
+        '</label>' +
+        '<input type="checkbox" name="switchMode" id="switchBox"/>' +
+        '<label for="switchBox" class="intLink" id="sw"><i class="icon-code"></i></label>' +
+        '<a href="javascript:void(0);" class="intLink" title="Clean" id="getClean">' +
+        '<i class="icon-eraser"></i></a>' +
+        '<a href="javascript:void(0);" class="intLink" title="Print" id="getPrint">' +
+        '<i class="icon-print"></i></a>' +
+        '<a href="javascript:void(0);" class="intLink formatBlock" title="Undo"  data-fn="undo">' +
+        '<i class="icon-undo"></i></a>' +
+        '<a href="javascript:void(0);" class="intLink formatBlock" title="Redo"  data-fn="redo">' +
+        '<i class="icon-repeat"></i></a>' +
+        '<a href="javascript:void(0);" class="intLink formatBlock" title="Remove formatting"  data-fn="removeFormat">' +
+        '<i class="icon-remove"></i></a>' +
+        '<a href="javascript:void(0);" class="intLink formatBlock" title="Bold"  data-fn="bold">' +
+        '<i class="icon-bold"></i></a>' +
+        '<a href="javascript:void(0);" class="intLink formatBlock" title="Italic"  data-fn="italic">' +
+        '<i class="icon-italic"></i></a>' +
+        '<a href="javascript:void(0);" class="intLink formatBlock" title="Underline"  data-fn="underline">' +
+        '<i class="icon-underline"></i></a>' +
+        '<a href="javascript:void(0);" class="intLink formatBlock" title="Left align"  data-fn="justifyleft">' +
+        '<i class="icon-align-left"></i></a>' +
+        '<a href="javascript:void(0);" class="intLink formatBlock" title="Center align"  data-fn="justifycenter">' +
+        '<i class="icon-align-center"></i>' + '</a>' +
+        '<a href="javascript:void(0);" class="intLink formatBlock" title="Right align"  data-fn="justifyright">' +
+        '<i class="icon-align-right">' + '</i></a>' +
+        '<a href="javascript:void(0);" class="intLink formatBlock" title="Numbered list"  data-fn="insertorderedList">' +
+        '<i class="icon-list-ol"></i></a>' +
+        '<a href="javascript:void(0);" class="intLink formatBlock" title="Dotted list"  data-fn="insertunorderedList">' +
+        '<i class="icon-list-ul"></i></a>' +
+        '<a href="javascript:void(0);" class="intLink" title="Quote"  id="quote" data-fn="blockquote">' +
+        '<i class="icon-quote-left"></i></a>' +
+        '<a href="javascript:void(0);" class="intLink formatBlock" title="Add indentation"  data-fn="indent">' +
+        '<i class="icon-indent-right"></i></a>' +
+        '<a href="javascript:void(0);" class="intLink formatBlock" title="Delete indentation"  data-fn="outdent">' +
+        '<i class="icon-indent-left"></i></a>' +
+        '<a href="javascript:void(0);" class="intLink" title="Hyperlink" id="getLink" data-fn="createlink">' +
+        '<i class="icon-link"></i></a>' +
+        '<a href="javascript:void(0);" class="intLink formatBlock" title="Unlink"  data-fn="unlink">' +
+        '<i class="icon-unlink"></i></a>' +
+        '<a href="javascript:void(0);" class="intLink formatBlock" title="Select all"  data-fn="selectall">' +
+        '<i class="icon-copy"></i></a>' +
+        '<a href="javascript:void(0);" class="intLink formatBlock" title="Get hr"  data-fn="inserthorizontalrule">' +
+        'HR </a>' +
+        ' <a href="javascript:void(0);" class="intLink" title="Get img" id="getImg" data-fn="insertImage">' +
+        '<i class="icon-picture">' + '</i></a>' +
+        ' </div>' +
+        '<div id="textBox" contenteditable="true">' +
+        '</div></div></div>';
+    // render html
+    el.innerHTML = html;
+  }
+  
+  function initDoc(fm, bx) {
+    var elem = bx,
+        sDefTxt;
+    sDefTxt = bx.innerHTML;
+    if (fm.checked) {
+      setDocMode(true);
+    }
+  }
+  
+  function formatDoc(obj, val) {
+    if (validateMode()) {
+      document.execCommand(obj, false, val);
+    }
+  }
+  
+  
+  function validateMode() {
+    var thisFor = document.querySelector('#thisForm');
+    if (!thisForm.checked) {
+      return true;
+    }
+    alert("Uncheck \"Show HTML\".");
+    return false;
+  }
+  
+  function setDocMode(source, oDoc) {
+    var sDefTxt = oDoc.innerHTML;
+    var oContent;
+    if (source) {
+      oContent = document.createTextNode(sDefTxt);
+      oDoc.innerHTML = "";
+      var oPre = document.createElement("pre");
+      oDoc.contentEditable = false;
+      oPre.id = "sourceText";
+      oPre.contentEditable = true;
+      oPre.appendChild(oContent);
+      oDoc.appendChild(oPre);
+      document.getElementById("cods").style.background="rgb(255, 231, 53)";
+      monitor = 0;
+      //document.getElementById("start").style.opacity="1";
+      //cstartInit();
+    } else {
+      document.getElementById("cods").style.background="rgb(255, 255, 255)";
+      monitor = 1;
+      if (document.all) {
+        sDefTxt = oDoc.innerText;
+      } else {
+        oContent = document.createRange();
+        oContent.selectNodeContents(oDoc.firstChild);
+        oDoc.innerHTML = oContent.toString();
+      }
+      oDoc.contentEditable = true;
+    }
+  }
+  
+  
+  // print function 
+  
+  function printDoc(el) {
+    if (!validateMode()) {
+      return;
+    }
+    var oPrntWin = window.open("", "_blank", "width=450,height=470,left=400,top=100,menubar=yes,toolbar=no,location=no,scrollbars=yes");
+    oPrntWin.document.open();
+    oPrntWin.document.write('<!doctype html><html><head><title>Print<\/title><\/head><body onload=\"print();\">' + el + '<\/body><\/html>');
+    oPrntWin.document.close();
+  }
+  
+  var cinit;
+  
+  function  cstartInit(){
+    cinit = setInterval(function(){
+      cstopInit();
+    }, 450);
+  }
+
+  function cstopInit(){
+    document.getElementById("start").style.opacity="0";
+    clearInterval(cinit);
+  }
+  
+  
+  // extend options
+  
+  function extend(a, b) {
+    for (var key in b) {
+      if (b.hasOwnProperty(key)) {
+        a[key] = b[key];
+      }
+    }
+    return a;
+  }
+  
+  function sweDitor(elem, options) {
+    // The div of editor
+    this.elem = elem;
+    // The options  ex. this.options.type = hello
+    this.options = extend(this.defaults, options);
+    // Get Template
+    getTemplate(elem);
+    // Start init
+    this._init();
+  }
+  
+  sweDitor.prototype = {
+    // this.options.type
+    defaults: {
+      textArea: 'editor_area',
+      showTextarea: true
+    },
+    
+    // this._init();
+    _init: function() {
+      var self = this;
+      // Div of content
+      this.box = document.querySelector('#textBox');
+      // array for change event
+      this.selects = Array.prototype.slice.call(this.elem.querySelectorAll('.selectThis'));
+      // array for click event
+      this.formats = Array.prototype.slice.call(this.elem.querySelectorAll('.formatBlock'));
+      // get print id
+      this.getPrint = document.getElementById('getPrint');
+      // The textarea
+      this.textArea = document.getElementById(this.options.textArea);
+      // get clean id
+      this.getClean = document.getElementById('getClean');
+      // get link id
+      this.getLink = document.getElementById('getLink');
+      // get img id 
+      this.getImg = document.getElementById('getImg');
+      // get switchbox
+      this.quote = document.getElementById('quote');
+      // get switchbox
+      this.switchBox = document.getElementById('switchBox');
+      // Init Doc function
+      initDoc(this, this.textArea);
+      this._initEvents();
+    },
+    
+    // this._initEvents();
+    _initEvents: function() {
+      
+      var self = this;
+      
+      //Show or hide textarea
+      if (this.options.showTextarea === true) {
+        self.textArea.style.display = 'block';
+      } else {
+        self.textArea.style.display = 'none';
+      }
+      
+      // On ready copy text of text area
+      this.box.innerHTML = this.textArea.textContent;
+      // On keyup copy text on textarea
+      this.box.addEventListener('keyup', function() {
+        self.textArea.textContent = self.box.innerHTML;
+      }, false);
+      // On keydown copy text on textarea
+      this.box.addEventListener('keydown', function() {
+        self.textArea.textContent = self.box.innerHTML;
+      }, false);
+      // add event on change for  all selects 
+      this.selects.forEach(function(el, i) {
+        el.addEventListener('change', function() {
+          formatDoc(this.getAttribute('data-chg'), this.value);
+          self.textArea.textContent = self.box.innerHTML;
+        }, false);
+      });
+      // get print
+      this.getPrint.addEventListener('click', function() {
+        printDoc(self.textArea.textContent);
+        self.textArea.textContent = self.box.innerHTML;
+      }, false);
+      // get clean
+      this.getClean.addEventListener('click', function() {
+        if (validateMode() && confirm('Are you sure?')) {
+          self.box.innerHTML = '';
+        }
+        self.textArea.textContent = self.box.innerHTML;
+      }, false);
+      // link listener
+      this.getLink.addEventListener('click', function() {
+        var sLnk = prompt('Write the URL here', 'http:\/\/');
+        if (sLnk && sLnk !== '' && sLnk !== 'http://') {
+          formatDoc(this.getAttribute('data-fn'), sLnk);
+          self.textArea.textContent = self.box.innerHTML;
+        }
+      }, false);
+      // img listener
+      this.getImg.addEventListener('click', function() {
+        var simg = prompt('Write the URL of image here', 'http:\/\/');
+        if (simg && simg !== '') {
+          formatDoc(this.getAttribute('data-fn'), simg);
+          self.textArea.textContent = self.box.innerHTML;
+        }
+      }, false);
+      
+      // all other formats  
+      this.formats.forEach(function(el, i) {
+        el.addEventListener('click', function() {
+          formatDoc(this.getAttribute('data-fn'));
+          self.textArea.textContent = self.box.innerHTML;
+        }, false);
+      });
+      // blockquote
+      this.quote.addEventListener('click', function() {
+        formatDoc('formatblock', this.getAttribute('data-fn'));
+        self.textArea.textContent = self.box.innerHTML;
+      }, false);
+      // swich pre code
+      this.switchBox.addEventListener('change', function() {
+        setDocMode(this.checked, self.box);
+        self.textArea.textContent = self.box.innerHTML;
+      }, false);
+    }
+    
+  };
+  
+  // add to global namespace
+  window.sweDitor = sweDitor;
+  
+})(window);
+
+// Init editor
+new sweDitor(document.getElementById('editor_panel'),{
+  textArea: 'editor_area', //id of textarea
+  showTextarea: false // if true show hidden text area
+});
+</script>
+<script>
+$(function(){
+  $('#cods').click(function(){ 
+    $('#switchBox').click();
+  });
+  $('#share').click(function(){
+    $('.day-results').hide();
+    $('#done').hide();
+    $('.jump-view').show();
+    if(elem == 1){
+    $('#full-page-link').text("Save >>>").css("background", "rgb(103, 209, 32)");
+    $('#full-page-url').attr('value', location.href);
+    $('#pubss').text('Save This Page');
+    $('.window_label ').show();
+    }
+    if(monitor == 0){
+    $('#switchBox').click();
+    }else{
+
+    }
+    $('#colorm').fadeIn();
+    acbox();
+  });
+  
+  $('#clock').click(function(){
+  $('.day-results').show();
+  $('#pubss').text('History');
+  $('.jump-view').hide();
+  $('#done').hide();
+  var hist2 = localStorage.getItem('history');
+      if(hist2 == null){
+        $('#day-results').text('No History');
+      }else{
+        var cnt = 0;
+        for( i in JSON.parse(hist2)){
+          $('.day-results').append("<li class='entry'><div class='entry-box-container'><label class='entry-box'><div class='visit-entry'><div class='title'><a href='"+JSON.parse(hist2)[cnt]+"' id='id-0' target='_blank'>"+JSON.parse(hist2)[cnt]+"</a></div></div></label></div></li>");
+          cnt++;
+        }
+      }
+    if(monitor == 0){
+    $('#switchBox').click();
+    }else{
+
+    }
+    $('#colorm').fadeIn();
+    acbox();
+  });
+  $('#close, #okbtn').click(function(){
+    $('#colorm').hide();
+    if($('#full-page-url').attr('value') != ""){
+      if(location.href != $('#full-page-url').attr('value')){
+        location.href = $('#full-page-url').attr('value');
+        elem = 1;
+      }else{
+        location.reload();
+        elem = 1;
+      }
+    }
+  });
+  
+  function acbox(){
+    var cmw = $('#colorm').innerWidth();
+    var boxw = $('#cbox').innerWidth();
+    var cmh = $('#colorm').innerHeight();
+    var boxh = $('#cbox').innerHeight();
+    cmw = cmw/2;
+    boxw = cmw - boxw/2;
+    cmh = cmh/2;
+    boxh = cmh - boxh/2;
+    $('#cbox').css('margin-left', boxw);
+    $('#cbox').css('margin-top', boxh);
+  }
+    
+  var timer = false;
+  $(window).resize(function() {
+    if (timer !== false) {
+        clearTimeout(timer);
+    }
+    timer = setTimeout(function() {
+        console.log('resized');
+        setinit();
+        acbox();
+    }, 200);
+  });
+  
+});
+</script>
+
+<div id='remote'>
+  <div id='rhead'>...</div>
+  <div class='icon' id='share'></div>
+  <div class='icon' id='cods'></div>
+  <div class='icon last' id='sets'></div>
+</div>
+
+<div id="colorm" style="display:none;">
+  <div id="cbox" style="margin-left: 143.5px; margin-top: 76.5px;">
+    <div id="close"></div>
+    <div id="mhead">
+      <span id="pubss">Publish This Page</span>
+    </div>
+    <div id="mcont">
+          <div class="jump-view jump-view-last">
+            <div id="full-page-link" href="" class="jump-label jump-label-full" target="_blank">
+              Publish >>>
+            </div>    
+            <input type="url" id="full-page-url" readonly="readonly" value="" placeholder="Publish URL will be created here">
+          </div>
+          <div id='done'>Save it.</div>
+          <button style='display:none;' class="button-primary js-signup-trigger js-track-click-event" data-event-name="homepage_splash_signup">Custome this URL</button>
+    <ol class="day-results" style="margin: 5px 0px 24px; padding: 0px; color: rgb(48, 57, 66); font-family: 'Lucida Grande', sans-serif; font-size: 12px;">
+    </ol>
+    
+    </div>
+    <div id="okbtn">Close</div>
+  </div>
+</div>
+<div id='start'>Source</div>
+<div id='clock'></div>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.10/socket.io.min.js"></script>
+<script src="/scripts/cgsstick.js"></script> 
+</body>
+</html>

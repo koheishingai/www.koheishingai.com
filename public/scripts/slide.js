@@ -1,4 +1,1 @@
-$(function(){
-  var slidec = 0;
-  $(".btn-next").click(function(){});
-});
+$(function(){ var slidec = 0; $(".btn-next").click(function(){});}); 
